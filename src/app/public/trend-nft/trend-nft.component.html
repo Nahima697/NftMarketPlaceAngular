@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-11">
+      <div class="row">
+        <h2 class="text-white fw-bolder">Découvre plus de NFTs</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <h5 class="text-white">Explore les Nfts en Vogue</h5>
+        </div>
+        <div class="col-lg-4">
+          <button class="btn mt-5 mb-5">
+            <div class="d-flex justify-content-center">
+              <span class="rocket-launch me-3"><img src="../../../assets/images/Eye.png" alt="eye"></span>
+              <div>
+              </div>
+              <span class="text ml-2 text-white ">Voir Tout</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-4" *ngFor="let nft of nfts">
+        <div class="card">
+          <img [src]="'http://localhost/nftMarketplace/uploads/' + nft.image" class="card-img-top" [alt]="nft.name">
+          <div class="card-body">
+            <h5 class="card-title text-white">{{ nft.name }}</h5>
+            <div class="d-flex align-items-center">
+              <img [src]="'http://localhost/nftMarketplace/uploads/' + nft.owner.avatar" alt="Avatar Propriétaire" class="avatarsmall me-2">
+              <p class="card-text text-white">{{ nft.owner.username }}</p>
+            </div>
+            <p class="card-text text-white">Prix : {{ nft.price }} ETH</p>
+            <p class="card-text text-white">Quantité disponible: {{ nft.quantity }} ETH</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+

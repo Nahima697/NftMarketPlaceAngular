@@ -1,0 +1,7 @@
+
+<div class="col-lg-4 mb-lg-3" *ngFor="let nft of gallery">
+  <img [src]="'http://localhost/nftMarketplace/uploads/'+ nft.image" [alt]="nft.name" class="collection">
+</div>
+<a [routerLink]="['/gallery/']" class="btn col-lg-4 ms-lg-2">
+  <p class="text-white fw-bold">Retour</p>
+</a>

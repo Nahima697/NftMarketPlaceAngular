@@ -1,0 +1,14 @@
+<form [formGroup]="addUserInfoForm "(ngSubmit)="updateProfile()"method="post" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="avatar" class="form-label text-white">Avatar</label>
+    <input type="file" class="form-control" (change)="onFileSelected($event)" id="avatar" name="avatar" formControlName="avatar">
+
+
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label text-white">Description</label>
+    <textarea class="form-control" id="description" name="description" formControlName="description" rows="4"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Mettre à jour le profil</button>
+</form>
+

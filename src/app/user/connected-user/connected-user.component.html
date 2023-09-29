@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+      <app-side-navigation [nfts]="nfts" [galleries]="galleries" [user]="user" [(showGalleryForm)]="showGalleryForm"
+      [(showNftForm)]="showNftForm" [showUserNft]="showUserNft"></app-side-navigation>
+    </div>
+    <div class="col py-3">
+      <ul class="nav nav-tabs" id="myTabs">
+        <li class="nav-item">
+          <button class="btn btn-dark" (click)="showGalleryForm = true; showNftForm = false; showUserNft = false;showUpdateUserForm=false">Ajoute une Gallerie</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-dark" (click)="showNftForm = true; showGalleryForm = false; showUserNft = false;showUpdateUserForm=false"> Ajoute un NFT</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-dark" (click)="showUserNft = true; showGalleryForm = false; showNftForm = false;showUpdateUserForm=false">NFT</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-dark" (click)="showUpdateUserForm = true; showGalleryForm = false; showNftForm = false;showUserNft= false">Profil</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-dark" (click)="showGraph = true; showGalleryForm = false; showNftForm = false;showUserNft= false">Graph</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabsContent">
+        <ng-container *ngIf="showGalleryForm">
+          <app-add-gallery></app-add-gallery>
+        </ng-container>
+        <ng-container *ngIf="showNftForm">
+          <app-add-nft [categories]="categories" [galleries]="galleries"></app-add-nft>
+        </ng-container>
+        <ng-container *ngIf="showUserNft">
+          <app-user-nft [nfts]="nfts" [gallery]="gallery" [owner]="user"></app-user-nft>
+        </ng-container>
+        <ng-container *ngIf="showUpdateUserForm">
+          <app-update-user></app-update-user>
+        </ng-container>
+        <ng-container *ngIf="showGraph">
+          <app-chart></app-chart>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</div>

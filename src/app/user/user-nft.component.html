@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 d-flex align-items-center">
+      <h4 class="text-white me-3" class="text-white">{{ owner.username }}</h4>
+      <img [src]="'http://localhost/nftMarketplace/uploads/' + owner.avatar" alt="Avatar Propriétaire" class="avatarsmall me-2">
+    </div>
+    <div class="col-lg-8">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" class="text-white">Total des Ventes</h5>
+              <p class="card-text" class="text-white">{{ owner.totalSales }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" class="text-white">Total de NFTs</h5>
+              <p class="card-text" class="text-white">{{ owner.artworksCount }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 mt-4">
+      <h3 class="text-white">NFTs de {{ owner.username }}</h3>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <div class="col-lg-3 mb-3 me-3" *ngFor="let nft of nfts">
+          <div class="card">
+            <img [src]="'http://localhost/nftMarketplace/uploads/' + nft.image" [alt]="nft.name" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title text-white">{{ nft.name }}</h5>
+              <!-- <p class="card-text">{{ nft.description }}</p> -->
+              <p class="card-text text-white">Prix : {{ nft.price }}</p>
+              <a [routerLink]="['/nft', nft.id]" class="btn btn-dark">Voir le détail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+  </div>
+  <div class="row mt-4">
+    <div class="col-lg-12">
+      <a [routerLink]="['/']" class="btn btn-close-white">
+        <p class="text-white fw-bold">Retour</p>
+      </a>
+    </div>
+  </div>
+</div>

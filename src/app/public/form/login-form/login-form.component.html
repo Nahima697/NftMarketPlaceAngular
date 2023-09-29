@@ -1,0 +1,46 @@
+
+<div class="container mt-6 ">
+  <div class="row mt-6">
+    <div class="col-lg-6">
+      <h1 class="text-white">Connexion</h1>
+      <form #form="ngForm" [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()" class="form w-75">
+        <div class="card mt-3">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="username" class="text-white">Identifiant</label>
+              <input id="username" type="text" formControlName="username" class="form-control">
+              <div *ngIf="form.submitted && loginForm.controls.username.invalid" class="text-danger">
+                <small>Le nom d'utilisateur est requis.</small>
+              </div>
+              <!-- <div *ngIf="loginForm.controls.username.invalid"  class="invalid-feedback">
+                <small>Le nom d'utilisateur est erroné.</small>
+              </div> -->
+            </div>
+            <div class="form-group">
+              <label for="password" class="text-white">Mot de passe</label>
+              <input id="password" type="password" formControlName="password" class="form-control">
+              <div *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)"
+              class="alert alert-danger">
+                <small>Le mot de passe est requis.</small>
+              </div>
+            </div>
+            <div class="form-group" class="text-white d-flex justify-content-center m-3">
+              <button type="submit" class="btn btn-success m-3" [disabled]="!loginForm.valid || !loginForm.dirty">Se connecter</button>
+              <app-google-auth></app-google-auth>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div *ngIf="(loginResponse$ | async) as loginResponse">
+        <div *ngIf="loginResponse.success">Connexion réussie !</div>
+        <div *ngIf="loginResponse.error">Erreur de connexion : {{ loginResponse.errorMessage }}</div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <img src="../../../assets/images/loginimage.jpg" alt="loginimage" class="img-fluid">
+      </div>
+    </div>
+  </div>
+
+</div>

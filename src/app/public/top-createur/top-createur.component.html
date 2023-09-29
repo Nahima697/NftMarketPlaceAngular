@@ -1,0 +1,28 @@
+<section class="mt-5">
+  <div class="container"  data-aos="fade-zoom-in"
+  data-aos-delay="2000"
+  duration= "5000"
+  data-aos-offset="0">
+    <div class="row">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-11">
+        <div class="row">
+          <div class="col-lg-8">
+            <h2 class="text-white fw-bold">Top Créateurs</h2>
+            <p class="text-white">Nos tops Créateurs dans notre Nft MarketPlace</p>
+          </div>
+        </div>
+        <div class="row d-flex" >
+          <div class="col-lg-3 mb-5" *ngFor="let creator of topCreators">
+            <div class="card card-artist d-flex flex-column align-items-center justify-content-center">
+              <a [routerLink]="['/user/profile/', creator.id]" ><img [src]="'http://localhost/nftMarketplace/uploads/' + creator.avatar" class="artistAvatar"></a>
+              <h4 class="text-white">{{ creator.username | titlecase }} </h4>
+              <p class="text-white">Total Ventes {{ creator.totalSales }} ETH</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

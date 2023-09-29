@@ -1,0 +1,16 @@
+<div *ngIf="!showUserNft" class="profile-container">
+  <h2 class="profile-heading text-white">Profil de {{ owner!.username }}</h2>
+  <p class="text-white">Nombre d'œuvres: {{ owner!.artworksCount || 'N/A' }}</p>
+  <p class="text-white">Ventes totales: {{ owner!.totalSales || 'N/A' }}</p>
+  <p class="profile-description text-white">
+ {{ owner.description}}
+  </p>
+  <img [src]="'http://localhost/nftMarketplace/uploads/' + owner!.avatar" alt="Avatar Propriétaire" class="avatar-small me-2">
+  <button class="btn btn-dark toggle-button" (click)="toggleShowUserNft()">Voir les NFT</button>
+</div>
+
+<button *ngIf="showUserNft" class="btn btn-dark toggle-button" (click)="toggleShowUserNft()">Voir le profil</button>
+
+<ng-container *ngIf="showUserNft">
+  <app-user-nft [nfts]="nfts" [gallery]="gallery" [owner]="owner"></app-user-nft>
+</ng-container>

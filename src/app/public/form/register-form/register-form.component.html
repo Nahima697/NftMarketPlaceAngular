@@ -1,0 +1,53 @@
+<div class="container register">
+  <div class="row">
+    <div class="col-lg-6">
+      <img src="../../../assets/images/Image formulaire.png" alt="chambre">
+    </div>
+    <div class="col-lg-6">
+      <h2 class="text-white">Bienvenue, inscris-toi vite et mets en vente tes NFTs</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="registerFormSubmit()" class="row g-3">
+        <div class="col-lg-12">
+          <label for="id_username" class="form-label text-white">Identifiant</label>
+          <input type="text" class="form-control" formControlName="username" id="id_username" name="username" required>
+          <div *ngIf="username?.touched && username?.errors?.['required']" class="d-block invalid-feedback">Renseigner un pseudo.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="id_firstName" class="form-label text-white">Prénom</label>
+          <input formControlName="firstName" type="text" class="form-control" id="id_firstName" required>
+          <div *ngIf="firstName?.touched && firstName?.errors?.['required']" class="d-block invalid-feedback">Renseigner votre prénom.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="id_lastName" class="form-label text-white">Nom</label>
+          <input type="text" class="form-control" formControlName="lastName" id="id_lastName" required>
+          <div *ngIf="lastName?.touched && lastName?.errors?.['required']" class="d-block invalid-feedback">Renseigner votre nom.</div>
+        </div>
+        <div class="col-md-12">
+          <label for="id_email" class="form-label text-white">Email</label>
+          <input formControlName="email" type="email" class="form-control" id="id_email" required>
+          <div *ngIf="email?.touched && email?.errors?.['required']" class="d-block invalid-feedback">Renseigne ton email.</div>
+          <div *ngIf="email?.touched && email?.errors?.['email'] && !email?.errors?.['required']" class="d-block invalid-feedback">L'adresse n'est pas valide.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="id_Password" class="form-label text-white">Mot de passe</label>
+          <input formControlName="password" [class.is-invalid]="password?.touched && password?.invalid"
+            type="password" class="form-control" id="id_Password">
+          <div *ngIf="password?.touched && password?.errors?.['required']" class="d-block invalid-feedback">
+          Renseignez un mot de passe.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="id_Password1" class="form-label text-white">Confirmation Mot de passe</label>
+          <input formControlName="password1" [class.is-invalid]="password1?.touched && password1?.invalid"
+            type="password" class="form-control" id="id_Password1">
+          <div *ngIf="password1?.touched && password1?.errors?.['required']" class="d-block invalid-feedback ">Erreur sur le Mot de passe</div>
+        </div>
+        <div class="col-md-6 mt-4 d-flex justify-content-center">
+          <button  type="submit" class="btn" [disabled]="!registerForm.valid">Créer un compte</button>
+          <div *ngIf="registerForm.invalid && registerForm.dirty "
+            class="alert alert-danger">
+            Le formulaire n'est pas correct.
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

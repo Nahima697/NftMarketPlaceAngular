@@ -1,0 +1,11 @@
+
+<div class="container">
+  <h2 class="text-white">Ajouter une galerie</h2>
+  <form [formGroup]="galleryForm" method="post"  (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label text-white">Nom de la galerie</label>
+      <input type="text" class="form-control" id="name" formControlName="name" name="name" required>
+    </div>
+    <button type="submit" class="btn btn-primary text-white">Ajouter une galerie</button>
+  </form>
+</div>

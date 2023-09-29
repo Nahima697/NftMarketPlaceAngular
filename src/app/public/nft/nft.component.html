@@ -1,0 +1,21 @@
+<h1 class="display-4">Tous les NFTs</h1>
+<div *ngIf="isLoading" class="alert alert-info">Chargement en cours...</div>
+<table *ngIf="!isLoading" class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Catégorie</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let nft of nfts">
+      <td>{{ nft.name }}</td>
+      <td>{{ nft.price }}</td>
+      <td> {{ nft.categoryName}}</td>
+      <td><a [routerLink]="['/nft/', nft.id]" class="btn btn-primary">Voir les détails du NFT</a></td>
+    </tr>
+  </tbody>
+</table>
+
