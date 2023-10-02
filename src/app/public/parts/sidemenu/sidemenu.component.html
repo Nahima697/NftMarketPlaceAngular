@@ -1,0 +1,93 @@
+
+<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <span class="fs-5 d-none d-sm-inline text-purple">Filtrer</span>
+    </a>
+    <form [formGroup]="filterForm" (ngSubmit)="submitForm()">
+      <div class="mb-3">
+        <label for="nftName" class="form-label text-purple">Nom NFT</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+          />
+          <button
+            type="submit"
+            class="btn btn-dark input-group-text"
+            id="btn-search"
+          >
+            <i class="bi bi-search text-purple"></i>
+          </button>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="gallery.name" class="form-label">Nom de la Galerie</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="gallery.name"
+            formControlName="galleryName"
+          />
+          <button
+            type="submit"
+            class="btn btn-dark input-group-text"
+            id="btn-search "
+          >
+            <i class="bi bi-search text-purple"></i>
+          </button>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="categoryName" class="form-label">Nom de la Catégorie</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="category.name"
+            formControlName="categoryName"
+          />
+          <button
+            type="submit"
+            class="btn btn-dark input-group-text"
+            id="btn-search"
+          >
+            <i class="bi bi-search text-purple"></i>
+          </button>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="minPrice" class="form-label">Prix Minimum</label>
+        <input
+          type="number"
+          class="form-control"
+          id="minPrice"
+          formControlName="minPrice"
+          placeholder="Min"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="maxPrice" class="form-label">Prix Maximum</label>
+        <input
+          type="number"
+          class="form-control"
+          id="maxPrice"
+          formControlName="maxPrice"
+          placeholder="Max"
+        />
+      </div>
+      <div class="mb-3">
+        <button
+          type="submit"
+          class="btn btn-dark"
+          id="btn-search"
+        >
+          <i class="bi bi-search text-purple"></i> Rechercher
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

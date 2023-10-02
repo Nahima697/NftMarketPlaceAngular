@@ -7,13 +7,14 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './_services/jwt-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
 import { NgChartsModule } from 'ng2-charts';
-
 import { PublicModule } from './public/public.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+
 
 
 

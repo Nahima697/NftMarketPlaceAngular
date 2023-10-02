@@ -1,16 +1,15 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable, ObservableInput } from 'rxjs';
+import { NftService } from 'src/app/_services/nft.service';
 import { creator } from 'src/app/interfaces/createurs';
 import { Nft } from 'src/app/interfaces/nft';
-import { NftService } from 'src/app/_services/nft.service';
-import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-hightlight',
-  templateUrl: './hightlight.component.html',
-  styleUrls: ['./hightlight.component.sass']
+  selector: 'app-high-light',
+  templateUrl: './high-light.component.html',
+  styleUrls: ['./high-light.component.sass']
 })
-export class HightlightComponent implements OnInit {
-
+export class HighLightComponent {
   constructor(private nftService: NftService) {}
 
   nft$!: Observable<Nft>;

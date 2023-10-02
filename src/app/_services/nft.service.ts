@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Nft } from '../interfaces/nft';
@@ -36,11 +36,10 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
 
 
   getTrendNfts():Observable<Nft>{
-    return this.http.get<Nft>(this.apiUrlTrend+'.json')
+    return this.http.get<Nft>(this.apiUrlTrend)
   }
 
   getHightlightNft():Observable<Nft> {
-
   return this.http.get<Nft>(this.apiUrlHight)
   }
 
@@ -50,4 +49,31 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
     return this.http.post<Nft>(this.apiUrl, nft, {headers:this.httoptions});
   }
 
+  getFilteredNfts(filters: any): Observable<Nft[]> {
+
+    let url = `${this.apiUrl}?`;
+
+    if (filters.minPrice !== undefined || filters.maxPrice !== undefined) {
+      url += `price[between]=${filters.minPrice || ''},${filters.maxPrice || ''}&`;
+    }
+
+    if (filters.nftName) {
+      url += `name=${filters.nftName}&`;
+    }
+    if (filters.galleryName) {
+      url += `gallery.name=${filters.galleryName}&`;
+    }
+    if (filters.username) {
+    url+=`gallery.owner.username=${ filters.username}`;
+    }
+    if (filters.categoryName) {
+      url += `category.wording=${filters.categoryName}&`;
+    }
+
+    if (url.endsWith('&')) {
+      url = url.slice(0, -1);
+    }
+
+    return this.http.get<Nft[]>(url);
+  }
 }

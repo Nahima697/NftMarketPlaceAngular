@@ -42,7 +42,6 @@ export class LoginFormComponent implements OnInit {
 
   loginFormSubmit(): void {
     this.submitted = true;
-
     if (this.loginForm.invalid) {
         return;
     }
@@ -64,7 +63,7 @@ export class LoginFormComponent implements OnInit {
         console.error("Veuillez remplir tous les champs.");
         this.router.navigate(['/loginForm']);
       }
-    } 
+    }
 
   }
 }

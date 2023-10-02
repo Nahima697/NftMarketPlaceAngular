@@ -22,10 +22,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ErrorComponent } from '../_utils/error/error.component';
+
 import { GoogleAuthComponent } from './form/google-auth/google-auth.component';
 import { FooterComponent } from './parts/footer/footer.component';
 import { TrendGalleriesComponent } from './galleries/trend-galleries/trend-galleries.component';
+import { HighLightComponent } from './high-light/high-light.component';
+import { BackgroundImageDirective } from '../_directives/background-image.directive';
+import { SidemenuComponent } from './parts/sidemenu/sidemenu.component';
 
 
 @NgModule({
@@ -50,7 +53,9 @@ import { TrendGalleriesComponent } from './galleries/trend-galleries/trend-galle
     GoogleAuthComponent,
     FooterComponent,
     TrendGalleriesComponent,
-
+    HighLightComponent,
+    BackgroundImageDirective,
+    SidemenuComponent,
 
   ],
   imports: [
@@ -62,6 +67,7 @@ import { TrendGalleriesComponent } from './galleries/trend-galleries/trend-galle
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    ReactiveFormsModule
   ]
 
 

@@ -4,7 +4,6 @@ export interface Nft {
       id:number,
       name: string,
       image: string,
-      filepath:string,
       price: number,
       owner:creator | any,
       Category: string,
