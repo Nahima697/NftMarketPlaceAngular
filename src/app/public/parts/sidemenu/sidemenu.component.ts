@@ -24,7 +24,6 @@ export class SidemenuComponent {
 
   @Output() filterChanged = new EventEmitter<any>();
 
-
   submitForm() {
     const filterValues = this.filterForm.value;
     this.filterChanged.emit(filterValues);

@@ -49,31 +49,29 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
     return this.http.post<Nft>(this.apiUrl, nft, {headers:this.httoptions});
   }
 
-  getFilteredNfts(filters: any): Observable<Nft[]> {
+  getFilteredNfts(filterValues: any): Observable<Nft[]>  {
+    let params = new HttpParams();
 
-    let url = `${this.apiUrl}?`;
-
-    if (filters.minPrice !== undefined || filters.maxPrice !== undefined) {
-      url += `price[between]=${filters.minPrice || ''},${filters.maxPrice || ''}&`;
+    if (filterValues.name) {
+      params = params.set('name', filterValues.name);
     }
-
-    if (filters.nftName) {
-      url += `name=${filters.nftName}&`;
+    if (filterValues.galleryName) {
+      params = params.set('gallery.name', filterValues.galleryName);
     }
-    if (filters.galleryName) {
-      url += `gallery.name=${filters.galleryName}&`;
+    if (filterValues.categoryName) {
+      params = params.set('category.wording', filterValues.categoryName);
     }
-    if (filters.username) {
-    url+=`gallery.owner.username=${ filters.username}`;
+    if (filterValues.username) {
+      params = params.set('gallery.owner.username', filterValues.username);
     }
-    if (filters.categoryName) {
-      url += `category.wording=${filters.categoryName}&`;
+    if (filterValues.priceRange1) {
+      params = params.set('priceRange1', filterValues.priceRange1);
     }
-
-    if (url.endsWith('&')) {
-      url = url.slice(0, -1);
+    if (filterValues.priceRange2) {
+      params = params.set('priceRange2', filterValues.priceRange2);
     }
-
-    return this.http.get<Nft[]>(url);
+    const url = `${this.apiUrl}?`;
+    return this.http.get<Nft[]>(url,{params});
   }
+
 }

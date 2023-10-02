@@ -12,7 +12,7 @@ export class NftComponent implements OnInit {
   nfts: Nft[] = [];
   isLoading: boolean = false;
   filterValues: any = {};
-  
+
 
   constructor(private nftService: NftService) {}
 
@@ -29,14 +29,12 @@ export class NftComponent implements OnInit {
 
   loadNfts() {
     if (this.filterValues) {
-
       this.nftService.getFilteredNfts(this.filterValues).subscribe(data => {
         this.nfts = data;
         console.log(data);
         this.isLoading = false;
       });
     } else {
-
       this.nftService.getAll().subscribe(data => {
         this.nfts = data;
         console.log(data);
