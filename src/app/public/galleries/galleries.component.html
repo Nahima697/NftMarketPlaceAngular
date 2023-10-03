@@ -19,8 +19,8 @@
                 <h5 class="card-title text-white mb-6">{{ gallery.name }}</h5>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="user-info d-flex justify-content-between align-items-baseline mt-6">
-                    <img [src]="'http://localhost/nftMarketplace/uploads/' + gallery.owner.avatar" [alt]="gallery.ownerName" class="avatarsmall me-2">
-                    <span class="text-white fw-bold">{{ gallery.ownerName }}</span>
+                    <img [src]="'http://localhost/nftMarketplace/uploads/' + gallery.owner.avatar" [alt]="gallery.owner.username" class="avatarsmall me-2">
+                    <span class="text-white fw-bold">{{ gallery.owner.username }}</span>
                     <h6 class="text-white"*ngIf="gallery.description"> {{ gallery.description }}</h6>
                     <a [routerLink]="['/gallery/', gallery.id]" class="btn collectionplus">
                       <p class="text-white fw-bold">{{ gallery.nfts.length }} NFTs</p>

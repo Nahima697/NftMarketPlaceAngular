@@ -39,8 +39,8 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
     return this.http.get<Nft>(this.apiUrlTrend)
   }
 
-  getHightlightNft():Observable<Nft> {
-  return this.http.get<Nft>(this.apiUrlHight)
+  getHightlightNft():Observable<Nft[]> {
+  return this.http.get<Nft[]>(this.apiUrlHight)
   }
 
   addNft(nft: FormData, owner: string | number): Observable<Nft> {

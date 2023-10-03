@@ -7,7 +7,7 @@ import { TopCreateurComponent } from './top-createur/top-createur.component';
 import { GalleriesComponent } from './galleries/galleries.component';
 import { CategoryComponent } from './category/category.component';
 import { TrendNftComponent } from './trend-nft/trend-nft.component';
-import { HightlightComponent } from './hightlight/hightlight.component';
+import { HightlightComponent } from './nft/hightlight/hightlight.component';
 import { GalleryDetailComponent } from './galleries/gallery-detail/gallery-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserNftComponent } from './user-nft/user-nft.component';
@@ -21,7 +21,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { GoogleAuthComponent } from './form/google-auth/google-auth.component';
 import { FooterComponent } from './parts/footer/footer.component';
 import { TrendGalleriesComponent } from './galleries/trend-galleries/trend-galleries.component';

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { CategoryComponent } from './category/category.component';
 import { GalleryDetailComponent } from './galleries/gallery-detail/gallery-detail.component';
 import { GalleriesComponent } from './galleries/galleries.component';
 import { RegisterFormComponent } from './form/register-form/register-form.component';
@@ -18,7 +17,6 @@ const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
-      { path: 'category', component: CategoryComponent },
       { path: 'gallery/:id', component: GalleryDetailComponent },
       { path: 'gallery', component: GalleriesComponent },
       { path: 'nft/:id', component: NftDetailComponent },

@@ -1,0 +1,26 @@
+<div class="hightlight">
+  <div class="container-fluid me-lg-3">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-11">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-12 d-flex justify-content-center" *ngIf="(nft$ | async) as nfts">
+          <div *ngIf="nfts.length > 0; else noNft">
+            <img [src]="'http://localhost/nftMarketplace/uploads/' + nfts[0].image" class="img content" height="640" />
+            <div class="info">
+              <h4 class="text-white">{{ nfts[0].name }}</h4>
+              <div class="avatar btn d-flex">
+                <img [src]="'http://localhost/nftMarketplace/uploads/' + (nfts[0].gallery.owner.avatar || '')" class="avatarsmall"  />
+                <h4 class="text-white">{{ nfts[0].gallery.owner.username || '' }}</h4>
+              </div>
+              <div class="button">
+                <a [routerLink]="['/nfts/', nfts[0].id]" class="btn btn-light">Voir les détails du NFT</a>
+              </div>
+            </div>
+          </div>
+          <ng-template #loading>Loading...</ng-template>
+          <ng-template #noNft>No NFT available</ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

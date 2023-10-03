@@ -17,13 +17,13 @@ export class HighLightComponent {
 
   ngOnInit(): void {
 
-    this.nft$ = this.nftService.getHightlightNft();
+    // this.nft$ = this.nftService.getHightlightNft();
 
-    this.nft$.subscribe((nft: Nft) => {
-      console.log(nft);
-      this.nftService.getUserFromNft(nft.id).subscribe((owner: creator) => {
-        this.user = owner;
-      });
-    });
+    // this.nft$.subscribe((nft: Nft) => {
+    //   console.log(nft);
+    //   this.nftService.getUserFromNft(nft.id).subscribe((owner: creator) => {
+    //     this.user = owner;
+    //   });
+    // });
   }
 }
