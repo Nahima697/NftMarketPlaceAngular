@@ -1,7 +1,22 @@
-
-<div class="col-lg-4 mb-lg-3" *ngFor="let nft of gallery">
-  <img [src]="'http://localhost/nftMarketplace/uploads/'+ nft.image" [alt]="nft.name" class="collection">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-lg-3" *ngFor="let nft of nfts">
+          <div class="card mb-3">
+            <img [src]="'http://localhost/nftMarketplace/uploads/' + nft.image" class="card-img-top" alt="Image du NFT">
+            <div class="card-body d-flex justify-content-around p-0">
+              <h5 class="card-title text-white">{{ nft.name }}</h5>
+              <p class="card-text text-white"> Prix : {{ nft.price }}</p>
+            </div>
+            <div class="card-footer d-flex justify-content-around p-0">
+              <p class="card-text text-white">{{ nft.categoryName }}</p>
+              <p class="card-text text-white">{{ gallery.owner.username}}</p>
+              <img [src]="'http://localhost/nftMarketplace/uploads/' + gallery.owner.avatar" class="card-img-top avatarsmall" alt="Image du NFT">
+              <a [routerLink]="['/nft/', nft.id]" class="btn btn-dark">Détails</a>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
-<a [routerLink]="['/gallery/']" class="btn col-lg-4 ms-lg-2">
-  <p class="text-white fw-bold">Retour</p>
-</a>
+

@@ -11,8 +11,8 @@ import { AuthService } from './auth.service';
 
 export class NftService {
   apiUrl:string ='https://127.0.0.1:8000/api/nfts'
-  apiUrlTrend: string ='https://127.0.0.1:8000/api/nfts?page=1&order%5BdropDate%5D=desc'
-  apiUrlHight: string ='https://127.0.0.1:8000/api/nfts?name=Grafittix'
+  apiUrlTrend: string ='https://127.0.0.1:8000/api/nfts?itemsPerPage=3&order%5BdropDate%5D=desc'
+  apiUrlHight: string ='https://127.0.0.1:8000/api/nfts?page=1&itemsPerPage=1&order%5BsaleDate%5D=desc'
 
   token = this.authservice.currentUserValue?.token;
  httoptions = new HttpHeaders({

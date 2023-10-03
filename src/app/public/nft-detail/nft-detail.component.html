@@ -1,20 +1,20 @@
-
 <div class="container">
-  <div class="row d-flex justify-content-center">
+  <div class="row">
     <div class="col-lg-6">
-      <div  class="card">
-        <img [src]="'http://localhost/nftMarketplace/uploads/' + nft.image" class="card-img-top img-fluid" [alt]="nft.name">
+      <img [src]="'http://localhost/nftMarketplace/uploads/' + nft.image" class="img-nft" [alt]="nft.name" style="max-width: 600px; height: auto;">
+    </div>
+    <div class="col-lg-6">
+      <h2 class="card-title text-white fw-bolder text-center">{{ nft.name }}</h2>
+      <div class="card">
         <div class="card-body">
-          <h5 class="card-title text-white">{{ nft.name }}</h5>
-          <p class="card-text text-white">Prix: {{ nft.price |currency: " ETH " }}</p>
+          <p class="card-text text-white">Prix: {{ nft.price | currency: " ETH " }}</p>
+          <p class="card-text text-white">Propriétaire: {{ nft.gallery.owner.username }}</p>
           <p class="card-text text-white">Quantité: {{ nft.quantity }}</p>
           <p class="card-text text-white">Date: {{ nft.dropDate | date:'medium'}}</p>
-          <p class="card-text text-white">Catégory: {{ nft.categoryName }}</p>
+          <p class="card-text text-white">Catégorie: {{ nft.categoryName }}</p>
           <a [routerLink]="['/']" class="btn btn-dark">Retour</a>
         </div>
+      </div>
     </div>
   </div>
 </div>
-
-</div>
-

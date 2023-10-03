@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Nft } from '../../interfaces/nft';
 import { NftService } from '../../_services/nft.service';
 
@@ -9,7 +9,7 @@ import { NftService } from '../../_services/nft.service';
 })
 
 export class NftComponent implements OnInit {
-  nfts: Nft[] = [];
+  @Input()nfts: Nft[] = [];
   isLoading: boolean = false;
   filterValues: any = {};
 

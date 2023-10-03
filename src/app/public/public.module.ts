@@ -8,7 +8,6 @@ import { GalleriesComponent } from './galleries/galleries.component';
 import { CategoryComponent } from './category/category.component';
 import { TrendNftComponent } from './trend-nft/trend-nft.component';
 import { HightlightComponent } from './hightlight/hightlight.component';
-import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 import { GalleryDetailComponent } from './galleries/gallery-detail/gallery-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserNftComponent } from './user-nft/user-nft.component';
@@ -42,7 +41,6 @@ import { SidemenuComponent } from './parts/sidemenu/sidemenu.component';
     CategoryComponent,
     TrendNftComponent,
     HightlightComponent,
-    CategoryDetailComponent,
     GalleryDetailComponent,
     UserNftComponent,
     PlayoutComponent,

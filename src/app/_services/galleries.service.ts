@@ -23,9 +23,11 @@ export class GalleriesService {
   getGalleries(): Observable<Gallery[]> {
     return this.http.get<Gallery[]>(this.apiUrl);
   }
-
+  getTrendGalleries(): Observable<Gallery[]> {
+    return this.http.get<Gallery[]>(this.apiUrl+'?itemsPerPage=3');
+  }
   getNftsByGalleries(id: number): Observable<Nft[]> {
-    return this.http.get<Nft[]>(this.apiUrl +'/'+ id +'/nfts');
+    return this.http.get<Nft[]>(this.apiUrl +'/'+ id );
   }
 
   addGallery(gallery: Gallery, owner:string|number): Observable<Gallery> {

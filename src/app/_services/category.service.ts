@@ -15,9 +15,5 @@ export class CategoryService {
     return this.http.get<Category[]>(this.apiUrl)
   }
 
-  getNftsByCategory(id:number): Observable<Nft[]> {
-    return this.http.get<Nft[]>(this.apiUrl+'/'+ id)
-  }
-
 
 }

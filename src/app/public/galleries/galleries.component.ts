@@ -21,7 +21,6 @@ export class GalleriesComponent implements OnInit {
   ngOnInit(): void {
     this.GalleriesService.getGalleries().subscribe((data: any) => {
         this.galleries = data;
-
         this.galleries.forEach((gallery: Gallery) => {
           console.log(gallery)
         this.nfts = gallery.nfts;

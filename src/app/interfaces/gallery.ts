@@ -5,7 +5,6 @@ export interface Gallery
   id: number,
   name: string,
   quantity: number,
-  purchase_date: Date,
   owner:creator|any,
   owner_id:number,
   ownerName: string,

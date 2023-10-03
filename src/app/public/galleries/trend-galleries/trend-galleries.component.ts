@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GalleriesService } from 'src/app/_services/galleries.service';
 import { NftService } from 'src/app/_services/nft.service';
 import { Gallery } from 'src/app/interfaces/gallery';
@@ -11,7 +11,7 @@ import { Nft } from 'src/app/interfaces/nft';
 })
 export class TrendGalleriesComponent implements OnInit{
   galleries!:Gallery[];
-  nfts? :Nft[] = []
+  @Input()nfts? :Nft[] = []
 
   constructor(
     public GalleriesService: GalleriesService,
@@ -19,7 +19,7 @@ export class TrendGalleriesComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.GalleriesService.getGalleries().subscribe((data: any) => {
+    this.GalleriesService.getTrendGalleries().subscribe((data: any) => {
         this.galleries = data;
         this.galleries.forEach((gallery: Gallery) => {
         this.nfts = gallery.nfts;

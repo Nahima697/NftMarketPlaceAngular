@@ -12,7 +12,8 @@ import { GalleriesService } from 'src/app/_services/galleries.service';
 
 
 export class GalleryDetailComponent implements OnInit {
- gallery!: Nft[];
+nfts!: Nft[];
+gallery!:Gallery;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,10 +23,12 @@ export class GalleryDetailComponent implements OnInit {
   ngOnInit(): void {
       let id = parseInt(this.route.snapshot.paramMap.get('id') || '');
       console.log(id);
-      this.galleriesService.getNftsByGalleries(id).subscribe((dataNfts: Nft[]) => {
-        console.log(dataNfts);
-        this.gallery = dataNfts;
-        console.log(this.gallery);
+      this.galleriesService.getNftsByGalleries(id).subscribe((data: any) => {
+        console.log(data);
+        this.gallery = data;
+        this.nfts = data.nfts;
+        
+        console.log(this.nfts);
       });
     };
   }
