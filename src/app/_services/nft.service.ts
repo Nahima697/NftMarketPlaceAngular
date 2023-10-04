@@ -64,11 +64,11 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
     if (filterValues.username) {
       params = params.set('gallery.owner.username', filterValues.username);
     }
-    if (filterValues.priceRange1) {
-      params = params.set('priceRange1', filterValues.priceRange1);
+    if (filterValues.minPrice) {
+      params = params.set('price[gt]',filterValues.minPrice);
     }
-    if (filterValues.priceRange2) {
-      params = params.set('priceRange2', filterValues.priceRange2);
+    if (filterValues.maxPrice) {
+      params= params.set('price[lt]',filterValues.maxPrice);
     }
     const url = `${this.apiUrl}?`;
     return this.http.get<Nft[]>(url,{params});
