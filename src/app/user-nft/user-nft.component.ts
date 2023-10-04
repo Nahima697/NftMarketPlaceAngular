@@ -15,7 +15,7 @@ export class UserNftComponent {
 
   @Input() nfts!:Nft[];
   @Input() gallery!:Gallery;
-  @Input() owner!:User;
+  @Input() owner:User |undefined;
 
     }
 

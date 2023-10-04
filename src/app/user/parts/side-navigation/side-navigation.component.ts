@@ -12,12 +12,12 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class SideNavigationComponent {
   constructor( private authService:AuthService) {}
-    @Input() showGalleryForm: boolean = false;
-    @Input() showNftForm: boolean = false;
-    @Input() showUserNft:boolean = true;
-    @Input() showUpdateUserForm:boolean = false;
-    @Input() showGraph:boolean = false;
-    @Input() user!: User;
+    @Input() showGalleryForm!: boolean;
+    @Input() showNftForm!: boolean;
+    @Input() showUserNft!:boolean;
+    @Input() showUpdateUserForm!:boolean;
+    @Input() showGraph!:boolean;
+    @Input() user?: User;
     @Input() nfts!:Nft[];
     @Input() gallery!:Gallery;
     @Input() galleries!:Gallery[];
@@ -26,6 +26,7 @@ export class SideNavigationComponent {
     @Output() showGalleryFormChange = new EventEmitter<boolean>();
     @Output() showUpdateUserFormChange = new EventEmitter<boolean>();
     @Output() showGraphChange = new EventEmitter<boolean>();
+    @Output() showUserNftChange = new EventEmitter<boolean>();
     logout() {
       this.authService.logout();
     }
@@ -52,5 +53,11 @@ export class SideNavigationComponent {
     showGraphClick() {
       this.showGraph= !this.showGraph;
       this.showGraphChange.emit(this.showGraph);
+    }
+
+    showUserNftClick() {
+      this.showUserNft= !this.showUserNft;
+      this.showUserNftChange.emit(this.showUserNft);
+
     }
 }

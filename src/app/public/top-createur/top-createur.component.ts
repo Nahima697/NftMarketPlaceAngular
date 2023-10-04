@@ -3,6 +3,7 @@ import { TopCreator } from '../../interfaces/createurs';
 import { UsersService } from 'src/app/_services/users.service';
 import { Nft } from 'src/app/interfaces/nft';
 import * as Aos from 'aos';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-createur',
@@ -13,19 +14,23 @@ export class TopCreateurComponent implements OnInit {
   topCreators: TopCreator[] = [];
   isLoading: boolean= false;
   nfts!:Nft[];
-  constructor(private UsersService:UsersService) {}
+  constructor(private UsersService:UsersService, private router: Router) {}
   ngOnInit(): void {
 
   this.UsersService.getAll().subscribe((data:any)=> {
     this.topCreators = [];
     this.topCreators = data.sort((a:any, b:any) => b.totalSales - a.totalSales);
     console.log(this.topCreators)
+
+
   });
 
     Aos.init({disable: 'mobile'});
     Aos.refresh();
 
   }
-
+  navigateToUserProfile(creatorId: number) {
+    this.router.navigate(['/profil', creatorId]);
+  }
 
 }

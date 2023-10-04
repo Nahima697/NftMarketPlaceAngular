@@ -8,6 +8,7 @@ import { ULayoutComponent } from './u-layout/u-layout.component';
 const routes: Routes = [
   {path:'',component:ULayoutComponent,children : [
     {path: '',pathMatch:'full', redirectTo:'connectedUser'},
+    
   { path: 'connectedUser', component: ConnectedUserComponent}
 ]},
 ]

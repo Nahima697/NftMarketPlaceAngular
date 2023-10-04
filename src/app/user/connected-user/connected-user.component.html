@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
       <app-side-navigation [nfts]="nfts" [galleries]="galleries" [user]="user" [(showGalleryForm)]="showGalleryForm"
-      [(showNftForm)]="showNftForm" [showUserNft]="showUserNft"></app-side-navigation>
+      [(showNftForm)]="showNftForm" [(showUserNft)]="showUserNft" [(showGraph)] ="showGraph" [(showUpdateUserForm)]="showUpdateUserForm"></app-side-navigation>
     </div>
     <div class="col py-3">
       <ul class="nav nav-tabs" id="myTabs">
@@ -33,7 +33,7 @@
           <app-user-nft [nfts]="nfts" [gallery]="gallery" [owner]="user"></app-user-nft>
         </ng-container>
         <ng-container *ngIf="showUpdateUserForm">
-          <app-update-user></app-update-user>
+          <app-update-user [owner]="user"></app-update-user>
         </ng-container>
         <ng-container *ngIf="showGraph">
           <app-chart></app-chart>

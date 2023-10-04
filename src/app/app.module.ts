@@ -11,12 +11,10 @@ import { PublicModule } from './public/public.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-
-
-
 
   ],
   imports: [
@@ -28,6 +26,7 @@ import { PublicModule } from './public/public.module';
     NgChartsModule,
 
   ],
+
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     CookieService,

@@ -10,7 +10,6 @@ import { TrendNftComponent } from './trend-nft/trend-nft.component';
 import { HightlightComponent } from './nft/hightlight/hightlight.component';
 import { GalleryDetailComponent } from './galleries/gallery-detail/gallery-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserNftComponent } from './user-nft/user-nft.component';
 import { PlayoutComponent } from './playout/playout.component';
 import { PublicRoutingModule } from './public-routing.module';
 import { NftComponent } from './nft/nft.component';
@@ -24,9 +23,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GoogleAuthComponent } from './form/google-auth/google-auth.component';
 import { FooterComponent } from './parts/footer/footer.component';
 import { TrendGalleriesComponent } from './galleries/trend-galleries/trend-galleries.component';
-import { HighLightComponent } from './high-light/high-light.component';
 import { BackgroundImageDirective } from '../_directives/background-image.directive';
 import { SidemenuComponent } from './parts/sidemenu/sidemenu.component';
+import { UserNftModule } from '../user-nft/user-nft.module';
 
 
 @NgModule({
@@ -41,7 +40,6 @@ import { SidemenuComponent } from './parts/sidemenu/sidemenu.component';
     TrendNftComponent,
     HightlightComponent,
     GalleryDetailComponent,
-    UserNftComponent,
     PlayoutComponent,
     NftComponent,
     NftDetailComponent,
@@ -50,9 +48,9 @@ import { SidemenuComponent } from './parts/sidemenu/sidemenu.component';
     GoogleAuthComponent,
     FooterComponent,
     TrendGalleriesComponent,
-    HighLightComponent,
     BackgroundImageDirective,
     SidemenuComponent,
+ 
 
   ],
   imports: [
@@ -64,7 +62,8 @@ import { SidemenuComponent } from './parts/sidemenu/sidemenu.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UserNftModule
   ]
 
 

@@ -32,15 +32,12 @@ export class ConnectedUserComponent implements OnInit {
 
     ngOnInit() {
       let id = this.authService.currentUserValue?.user.id;
-      console.log(this.authService.currentUserValue?.user.id);
         this.loading = true;
         this.usersService.getOne(id!).subscribe(user => {
             this.loading = false;
             this.user = user;
-            console.log(user)
         });
         this.usersService.getUser(id!).subscribe((data:any )=> {
-          console.log(data);
          this.galleries = data['galleries'];
          console.log(this.galleries);
          this.nfts = this.galleries[0].nfts
@@ -48,7 +45,6 @@ export class ConnectedUserComponent implements OnInit {
 
         this.categoryService.getCategories().subscribe((dataCategory:any) => {
           this.categories = dataCategory;
-          console.log(dataCategory);
         })
 }
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/_services/auth.service';
 import { UsersService } from 'src/app/_services/users.service';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-update-user',
@@ -17,12 +18,13 @@ export class UpdateUserComponent implements OnInit {
 
   addUserInfoForm!: FormGroup;
   owner_id: number | undefined;
+  @Input() owner?:User
 
   ngOnInit(): void {
     this.owner_id = this.retrieveOwnerId();
     this.addUserInfoForm = this.formBuilder.group({
-      avatar: ['', Validators.required],
-      description: ['', Validators.required]
+      avatar: [this.owner ? this.owner.avatar:'', Validators.required],
+      description: [this.owner ? this.owner.description : '', Validators.required]
     });
   }
 
@@ -31,20 +33,20 @@ export class UpdateUserComponent implements OnInit {
 
       const formData = new FormData();
       formData.append('description', this.addUserInfoForm.get('description')!.value);
-      formData.append('avatar', this.addUserInfoForm.get('avatar')!.value, 'avatar'); 
+      formData.append('avatar', this.addUserInfoForm.get('avatar')!.value, 'avatar');
       formData.append('avatar', this.addUserInfoForm.get('avatar')!.value, this.addUserInfoForm.get('avatar')!.value.name);
 
       console.log(formData);
 
       this.usersService.addInfoUser(this.owner_id,formData).subscribe(
-        (response) => {
+        ((response) => {
           console.log('Utilisateur a été mis à jour avec succès :', response);
           this.addUserInfoForm.reset();
-        },
-        (error) => {
+        }),
+        ((error) => {
           console.error("Problème", error)
         }
-      );
+      ));
     }
   }
 

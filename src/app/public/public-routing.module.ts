@@ -23,7 +23,7 @@ const routes: Routes = [
       { path: 'nft', component: NftComponent },
       { path: 'registerForm', component: RegisterFormComponent },
       { path: 'loginForm', component: LoginFormComponent },
-      { path: 'profil', component: UserProfileComponent },
+      { path: 'profil/:id', component: UserProfileComponent },
       // {path:'**', component:ErrorComponent},
     ],
   },

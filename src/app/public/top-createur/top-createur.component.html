@@ -12,7 +12,7 @@
         <div class="row d-flex" >
           <div class="col-lg-3 mb-5" *ngFor="let creator of topCreators">
             <div class="card card-artist d-flex flex-column align-items-center justify-content-center">
-              <a [routerLink]="['/user/profile/', creator.id]" ><img [src]="'http://localhost/nftMarketplace/uploads/' + creator.avatar" class="artistAvatar"></a>
+              <a (click)="navigateToUserProfile(creator.id)" ><img [src]="'http://localhost/nftMarketplace/uploads/' + creator.avatar" class="artistAvatar"></a>
               <h4 class="text-white">{{ creator.username | titlecase }} </h4>
               <p class="text-white">Total Ventes {{ creator.totalSales }} ETH</p>
             </div>
