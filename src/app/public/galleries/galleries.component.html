@@ -11,7 +11,7 @@
         <div class="row d-flex justify-content-between">
           <div class="col-lg-4" *ngFor="let gallery of galleries">
             <div class="card mb-4 position-relative"*ngIf="gallery.nfts && gallery.nfts.length > 1">
-              <div class="nft-square position-absolute  ">
+              <div class="nft-square">
                 <img [src]="'http://localhost/nftMarketplace/uploads/' + gallery.nfts[1].image" [alt]="gallery.name" class="nft-image" width="100" height="100">
               </div>
               <img [src]="'http://localhost/nftMarketplace/uploads/' + gallery.nfts[0].image" [alt]="gallery.name" class="card-img-top">

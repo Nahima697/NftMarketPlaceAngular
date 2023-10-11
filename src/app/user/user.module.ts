@@ -17,6 +17,7 @@ import { UserNftModule } from '../user-nft/user-nft.module';
 
 
 
+
 @NgModule({
   declarations: [
     ULayoutComponent,
@@ -33,11 +34,11 @@ import { UserNftModule } from '../user-nft/user-nft.module';
     UserRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    UserNftModule
+    UserNftModule,
 
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     CookieService,
   ],
 })

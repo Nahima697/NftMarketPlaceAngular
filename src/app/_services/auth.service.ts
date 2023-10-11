@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'environnement';
@@ -7,13 +7,17 @@ import { TokenUser, User } from 'src/app/interfaces/user';
 
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-
+import { SocialUser } from '@abacritt/angularx-social-login';
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 @Injectable({ providedIn: 'root' })
 
 export class AuthService {
   private currentUserSubject: BehaviorSubject<TokenUser | null>;
   public currentUser: Observable<TokenUser | null>;
   private apiGoogle ='https://127.0.0.1:8000/connect/google';
+
   constructor(
     private http: HttpClient,
     private cookieService: CookieService,
@@ -48,7 +52,7 @@ export class AuthService {
     logout() {
         this.cookieService.delete('currentUser');
         this.currentUserSubject.next(null);
-        this.router.navigate(['/loginForm']);
+        this.router.navigate(['/auth']);
     }
 
     saveToken(token: string,user:User): void {
@@ -56,7 +60,11 @@ export class AuthService {
       this.currentUserSubject.next(tokenUser);
       this.router.navigate(['/user/connectedUser']);
     }
-
+    saveGoogleToken(token:string, user:SocialUser) {
+      const tokenGoogleUser:any= { idToken : token,user:user}
+      this.currentUserSubject.next(tokenGoogleUser);
+      this.router.navigate(['/user/connectedUser']);
+    }
 
     isLogged(): boolean {
       const token = this.cookieService.get('currentUser');
@@ -66,7 +74,9 @@ export class AuthService {
     getToken(): string | null {
       return this.cookieService.get('currentUser');
     }
-
+    refreshToken() {
+      return this.http.post(`${environment.apiUrl}/auth` + 'refreshtoken', { }, httpOptions);
+    }
 
     authenticateWithGoogle(idToken: string): Observable<any> {
       const body = { id_token: idToken };

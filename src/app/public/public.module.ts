@@ -18,7 +18,7 @@ import { LoginFormComponent } from './form/login-form/login-form.component';
 import { RegisterFormComponent } from './form/register-form/register-form.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GoogleAuthComponent } from './form/google-auth/google-auth.component';
 import { FooterComponent } from './parts/footer/footer.component';
@@ -26,6 +26,9 @@ import { TrendGalleriesComponent } from './galleries/trend-galleries/trend-galle
 import { BackgroundImageDirective } from '../_directives/background-image.directive';
 import { SidemenuComponent } from './parts/sidemenu/sidemenu.component';
 import { UserNftModule } from '../user-nft/user-nft.module';
+import { CookieService } from 'ngx-cookie-service';
+import { JwtInterceptor } from '../_services/jwt-interceptor.service';
+import {SocialLoginModule, GoogleLoginProvider, SocialAuthServiceConfig, GoogleSigninButtonDirective, GoogleSigninButtonModule, } from '@abacritt/angularx-social-login';
 
 
 @NgModule({
@@ -50,7 +53,6 @@ import { UserNftModule } from '../user-nft/user-nft.module';
     TrendGalleriesComponent,
     BackgroundImageDirective,
     SidemenuComponent,
- 
 
   ],
   imports: [
@@ -62,10 +64,33 @@ import { UserNftModule } from '../user-nft/user-nft.module';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    SocialLoginModule,
+    GoogleSigninButtonModule,
     ReactiveFormsModule,
-    UserNftModule
-  ]
+    UserNftModule,
+  ],
 
+  providers: [
+    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '368535994642-425lq17e547hq1a1ills6q9njq6522je.apps.googleusercontent.com'
+            )
+          },
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    },
+    CookieService,
+  ],
 
 })
 export class PublicModule { }

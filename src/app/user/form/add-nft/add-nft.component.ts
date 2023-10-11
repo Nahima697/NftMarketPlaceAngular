@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/interfaces/category';
 import { Gallery } from 'src/app/interfaces/gallery';
-import { Nft } from 'src/app/interfaces/nft';
 import { AuthService } from 'src/app/_services/auth.service';
 import { NftService } from 'src/app/_services/nft.service';
 

@@ -20,6 +20,7 @@ export class NftDetailComponent implements OnInit {
   ngOnInit(): void {
 
     let id = parseInt(this.activatedRoute.snapshot.paramMap.get('id') || '');
+    
 
     this.nftService.getOne(id).subscribe(data => {
       this.nft = data;

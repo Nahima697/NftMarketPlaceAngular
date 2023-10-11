@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 import { AuthService } from 'src/app/_services/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UsersService } from 'src/app/_services/users.service';
-import { TokenUser, User } from 'src/app/interfaces/user';
+
 
 
 @Component({
@@ -61,7 +60,7 @@ export class LoginFormComponent implements OnInit {
           this.isLogged = true;
         } else {
         console.error("Veuillez remplir tous les champs.");
-        this.router.navigate(['/loginForm']);
+        this.router.navigate(['/auth']);
       }
     }
 
