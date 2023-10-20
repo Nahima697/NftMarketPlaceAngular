@@ -1,3 +1,4 @@
+import { SocialUser } from "@abacritt/angularx-social-login";
 import { creator } from "./createurs";
 
 export interface User
@@ -17,5 +18,5 @@ export interface User
 
  export interface TokenUser {
 token:string;
-user:User;
+user:User | SocialUser;
  }

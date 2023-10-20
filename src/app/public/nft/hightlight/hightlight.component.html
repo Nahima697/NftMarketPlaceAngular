@@ -1,6 +1,6 @@
-<div class="container-fluid me-lg-3">
+
       <div *ngFor="let nft of nft$ | async">
-        <div class="hightlight" [appBackgroundImage]="'http://localhost/nftMarketplace/uploads/' + nft.image">
+        <div class="hightlight container-fluid" [appBackgroundImage]="'http://localhost/nftMarketplace/uploads/' + nft.image">
           <div class="info d-flex flex-column justify-content-around">
             <h4 class="text-white mb-2">{{ nft.name }}</h4>
             <div class="avatar btn d-flex mb-2">
@@ -13,4 +13,4 @@
           </div>
         </div>
       </div>
-    </div>
+

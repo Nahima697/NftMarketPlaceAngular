@@ -6,6 +6,7 @@ import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/_services/auth.service';
 import { CategoryService } from 'src/app/_services/category.service';
 import { UsersService } from 'src/app/_services/users.service';
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-connected-user',
@@ -20,6 +21,7 @@ export class ConnectedUserComponent implements OnInit {
     showUpdateUserForm:boolean = false;
     showGraph:boolean =false;
     user!: User;
+    socialUser!:SocialUser;
     nfts!:Nft[];
     gallery!:Gallery;
     galleries!:Gallery[];
@@ -28,15 +30,26 @@ export class ConnectedUserComponent implements OnInit {
     constructor(
       private usersService: UsersService,
       private authService:AuthService,
-      private categoryService: CategoryService) { }
+      private categoryService: CategoryService,
+      private socialAuthService: SocialAuthService) { }
 
     ngOnInit() {
       let id = this.authService.currentUserValue?.user.id;
+
+      const userId = sessionStorage.getItem('google_id');
+      if(id || userId) {
         this.loading = true;
-        this.usersService.getOne(id!).subscribe(user => {
+        this.usersService.getOne(id! || userId).subscribe(user => {
             this.loading = false;
             this.user = user;
         });
+      }
+        this.socialAuthService.authState.subscribe((user: SocialUser) => {
+          if (user) {
+            this.socialUser = user;
+          }
+        });
+
         this.usersService.getUser(id!).subscribe((data:any )=> {
          this.galleries = data['galleries'];
          console.log(this.galleries);

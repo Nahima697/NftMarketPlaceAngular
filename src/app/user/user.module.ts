@@ -38,7 +38,7 @@ import { UserNftModule } from '../user-nft/user-nft.module';
 
   ],
   providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     CookieService,
   ],
 })

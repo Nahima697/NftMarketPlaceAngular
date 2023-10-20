@@ -5,6 +5,8 @@ import {
   GoogleLoginProvider,
 } from '@abacritt/angularx-social-login';
 import { AuthService } from 'src/app/_services/auth.service';
+import { UsersService } from 'src/app/_services/users.service';
+import { User } from 'src/app/interfaces/user';
 @Component({
   selector: 'app-google-auth',
   templateUrl: './google-auth.component.html',
@@ -12,19 +14,25 @@ import { AuthService } from 'src/app/_services/auth.service';
 
 })
 export class GoogleAuthComponent {
-  constructor(private router: Router,  private socialAuthService: SocialAuthService, private authService: AuthService) {}
+  constructor(private router: Router,  private socialAuthService: SocialAuthService,
+    private authService: AuthService,
+    private userService:UsersService) {}
   loggedIn?: boolean;
-  user!: SocialUser;
+  socialUser!: SocialUser;
+  user?:User;
   isLogged = false;
   ngOnInit() {
-    this.socialAuthService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = (user != null);
+    this.socialAuthService.authState.subscribe((socialUser) => {
+      this.socialUser = socialUser;
+      this.loggedIn = (socialUser != null);
       if (this.loggedIn) {
         this.isLogged = true;
-        const token = user.idToken;
-          this.authService.saveGoogleToken(token, user);
+        const token = socialUser.idToken;
+          this.authService.saveGoogleToken(token, socialUser);
             }
+      this.userService.getUserIdByGoogleId(socialUser.id).subscribe((id:number)=> {
+        this.user!.id = id;
+      });
     });
   }
 

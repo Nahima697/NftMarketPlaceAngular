@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/interfaces/user';
 import { UsersService } from 'src/app/_services/users.service';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-register-form',
@@ -9,7 +10,7 @@ import { UsersService } from 'src/app/_services/users.service';
   styleUrls: ['./register-form.component.sass'],
 })
 export class RegisterFormComponent implements OnInit {
-  constructor(private fb: FormBuilder, private usersService: UsersService) {}
+  constructor(private fb: FormBuilder, private usersService: UsersService,private authService:AuthService) {}
 
   registerForm = this.fb.group({
     firstName: ['', Validators.required],

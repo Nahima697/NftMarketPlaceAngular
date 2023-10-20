@@ -43,7 +43,7 @@ export class JwtInterceptor implements HttpInterceptor {
       catchError((error) => {
         if (
           error instanceof HttpErrorResponse &&
-          !request.url.includes('auth/signin') &&
+          !request.url.includes('auth') &&
           error.status === 401
         ) {
           return this.handle401Error(request, next);
@@ -66,7 +66,6 @@ export class JwtInterceptor implements HttpInterceptor {
           }),
           catchError((error) => {
             this.isRefreshing = false;
-
 
             return throwError(() => error);
           })

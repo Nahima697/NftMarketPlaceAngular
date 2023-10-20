@@ -43,7 +43,9 @@ export class UsersService {
   getUser(id:number): Observable<User> {
     return this.http.get<User>(this.apiUrl+'/'+ id+".json")
   }
-
+getUserIdByGoogleId(id:string):Observable<number> {
+  return this.http.get<number>(this.apiUrl+'/'+ id +'/get_user_id_by_google_id')
+}
   checkIfUsernameExists(username: string): Observable<boolean> {
 
     return this.http.get<boolean>(this.apiUrl, { params: { username } });

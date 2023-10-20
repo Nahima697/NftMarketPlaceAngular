@@ -4,10 +4,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'environnement';
 import { TokenUser, User } from 'src/app/interfaces/user';
-
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { SocialUser } from '@abacritt/angularx-social-login';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -21,8 +21,8 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private cookieService: CookieService,
-    private router: Router
-          )
+    private router: Router,
+  )
 
 {
 
@@ -36,7 +36,7 @@ export class AuthService {
     }
   }
 
-    public get currentUserValue(): TokenUser| null {
+    public get currentUserValue(): TokenUser| null | any {
         return this.currentUserSubject.value;
     }
 
@@ -51,6 +51,7 @@ export class AuthService {
 
     logout() {
         this.cookieService.delete('currentUser');
+        this.cookieService.delete('googleUser');
         this.currentUserSubject.next(null);
         this.router.navigate(['/auth']);
     }
@@ -67,13 +68,15 @@ export class AuthService {
     }
 
     isLogged(): boolean {
-      const token = this.cookieService.get('currentUser');
-      return !!token;
+      const currentUser = this.cookieService.get('currentUser');
+      const googleUser = this.cookieService.get('googleUser');
+      return !!(currentUser || googleUser );
     }
 
     getToken(): string | null {
-      return this.cookieService.get('currentUser');
+      return this.cookieService.get('currentUser') || this.cookieService.get('googleUser');
     }
+
     refreshToken() {
       return this.http.post(`${environment.apiUrl}/auth` + 'refreshtoken', { }, httpOptions);
     }
@@ -82,5 +85,6 @@ export class AuthService {
       const body = { id_token: idToken };
       return this.http.post(this.apiGoogle, body);
     }
+
     }
 

@@ -27,8 +27,7 @@ import { BackgroundImageDirective } from '../_directives/background-image.direct
 import { SidemenuComponent } from './parts/sidemenu/sidemenu.component';
 import { UserNftModule } from '../user-nft/user-nft.module';
 import { CookieService } from 'ngx-cookie-service';
-import { JwtInterceptor } from '../_services/jwt-interceptor.service';
-import {SocialLoginModule, GoogleLoginProvider, SocialAuthServiceConfig, GoogleSigninButtonDirective, GoogleSigninButtonModule, } from '@abacritt/angularx-social-login';
+import {SocialLoginModule, GoogleLoginProvider, SocialAuthServiceConfig, GoogleSigninButtonModule, } from '@abacritt/angularx-social-login';
 
 
 @NgModule({
@@ -71,7 +70,6 @@ import {SocialLoginModule, GoogleLoginProvider, SocialAuthServiceConfig, GoogleS
   ],
 
   providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
