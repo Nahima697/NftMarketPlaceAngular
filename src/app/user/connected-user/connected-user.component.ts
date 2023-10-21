@@ -21,7 +21,6 @@ export class ConnectedUserComponent implements OnInit {
     showUpdateUserForm:boolean = false;
     showGraph:boolean =false;
     user!: User;
-    socialUser!:SocialUser;
     nfts!:Nft[];
     gallery!:Gallery;
     galleries!:Gallery[];
@@ -31,33 +30,28 @@ export class ConnectedUserComponent implements OnInit {
       private usersService: UsersService,
       private authService:AuthService,
       private categoryService: CategoryService,
-      private socialAuthService: SocialAuthService) { }
+      private userService: UsersService) { }
 
-    ngOnInit() {
-      let id = this.authService.currentUserValue?.user.id;
+      ngOnInit() {
+        let id = this.authService.currentUserValue?.user.id;
+        console.log(this.authService.currentUserValue?.user.id);
+          this.loading = true;
+          this.usersService.getOne(id!).subscribe(user => {
+              this.loading = false;
+              this.user = user;
+              console.log(user)
+          });
+          this.usersService.getUser(id!).subscribe((data:any )=> {
+            console.log(data);
+           this.galleries = data['galleries'];
+           console.log(this.galleries);
+           this.nfts = this.galleries[0].nfts;
+           console.log(this.nfts)
+          });
 
-      const userId = sessionStorage.getItem('google_id');
-      if(id || userId) {
-        this.loading = true;
-        this.usersService.getOne(id! || userId).subscribe(user => {
-            this.loading = false;
-            this.user = user;
-        });
-      }
-        this.socialAuthService.authState.subscribe((user: SocialUser) => {
-          if (user) {
-            this.socialUser = user;
-          }
-        });
-
-        this.usersService.getUser(id!).subscribe((data:any )=> {
-         this.galleries = data['galleries'];
-         console.log(this.galleries);
-         this.nfts = this.galleries[0].nfts
-        });
-
-        this.categoryService.getCategories().subscribe((dataCategory:any) => {
-          this.categories = dataCategory;
-        })
-}
+          this.categoryService.getCategories().subscribe((dataCategory:any) => {
+            this.categories = dataCategory;
+            console.log(dataCategory);
+          })
+  }
 }

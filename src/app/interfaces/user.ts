@@ -18,5 +18,5 @@ export interface User
 
  export interface TokenUser {
 token:string;
-user:User | SocialUser;
+user:User ;
  }

@@ -24,17 +24,19 @@ export class GoogleAuthComponent {
   ngOnInit() {
     this.socialAuthService.authState.subscribe((socialUser) => {
       this.socialUser = socialUser;
-      this.loggedIn = (socialUser != null);
+      this.loggedIn = socialUser != null;
+
       if (this.loggedIn) {
         this.isLogged = true;
         const token = socialUser.idToken;
-          this.authService.saveGoogleToken(token, socialUser);
-            }
-      this.userService.getUserIdByGoogleId(socialUser.id).subscribe((id:number)=> {
-        this.user!.id = id;
-      });
+          this.userService.getUserIdByGoogleId(socialUser.id).subscribe((user: User) => {
+            console.log(user)
+            this.authService.saveGoogleToken(token, user);
+          });
+      }
     });
-  }
+    };
+
 
   refreshToken(): void {
     this.socialAuthService.refreshAuthToken(GoogleLoginProvider.PROVIDER_ID);

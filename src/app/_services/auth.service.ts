@@ -61,9 +61,10 @@ export class AuthService {
       this.currentUserSubject.next(tokenUser);
       this.router.navigate(['/user/connectedUser']);
     }
-    saveGoogleToken(token:string, user:SocialUser) {
-      const tokenGoogleUser:any= { idToken : token,user:user}
+    saveGoogleToken(token: string, user: User) {
+      const tokenGoogleUser: any = { idToken: token, user: user };
       this.currentUserSubject.next(tokenGoogleUser);
+      this.cookieService.set('googleUser', JSON.stringify(tokenGoogleUser));
       this.router.navigate(['/user/connectedUser']);
     }
 

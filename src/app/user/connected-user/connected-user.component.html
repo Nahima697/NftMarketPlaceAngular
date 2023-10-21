@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-      <app-side-navigation [nfts]="nfts" [galleries]="galleries" [user]="user" [socialUser]="socialUser" [(showGalleryForm)]="showGalleryForm"
+      <app-side-navigation [nfts]="nfts" [galleries]="galleries" [user]="user" [(showGalleryForm)]="showGalleryForm"
       [(showNftForm)]="showNftForm" [(showUserNft)]="showUserNft" [(showGraph)] ="showGraph" [(showUpdateUserForm)]="showUpdateUserForm"></app-side-navigation>
     </div>
     <div class="col py-3">
@@ -30,7 +30,7 @@
           <app-add-nft [categories]="categories" [galleries]="galleries"></app-add-nft>
         </ng-container>
         <ng-container *ngIf="showUserNft">
-          <app-user-nft [nfts]="nfts" [gallery]="gallery" [owner]="user"></app-user-nft>
+          <app-user-nft [nfts]="nfts" [gallery]="gallery" [owner]="user" [galleries]="galleries"></app-user-nft>
         </ng-container>
         <ng-container *ngIf="showUpdateUserForm">
           <app-update-user [owner]="user"></app-update-user>

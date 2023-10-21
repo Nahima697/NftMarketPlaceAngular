@@ -56,7 +56,7 @@ export class UpdateUserComponent implements OnInit {
   }
 
   private retrieveOwnerId(): number {
-    const id = this.authService.currentUserValue?.user.id || 0;
+    const id = this.authService.currentUserValue?.user.id;
     return id;
   }
 }

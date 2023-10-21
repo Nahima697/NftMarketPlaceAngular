@@ -46,7 +46,7 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
   addNft(nft: FormData, owner: string | number): Observable<Nft> {
     nft.append('owner', owner.toString());
     console.log(this.apiUrl, nft);
-    return this.http.post<Nft>(this.apiUrl, nft);
+    return this.http.post<Nft>(this.apiUrl, nft, {headers:this.httoptions});
   }
 
   getFilteredNfts(filterValues: any): Observable<Nft[]>  {
