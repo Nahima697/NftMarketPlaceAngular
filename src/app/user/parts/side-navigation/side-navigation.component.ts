@@ -19,7 +19,6 @@ export class SideNavigationComponent {
     @Input() showUpdateUserForm!:boolean;
     @Input() showGraph!:boolean;
     @Input() user?: User ;
-    @Input() socialUser?: SocialUser ;
     @Input() nfts!:Nft[];
     @Input() gallery!:Gallery;
     @Input() galleries!:Gallery[];
@@ -29,7 +28,7 @@ export class SideNavigationComponent {
     @Output() showUpdateUserFormChange = new EventEmitter<boolean>();
     @Output() showGraphChange = new EventEmitter<boolean>();
     @Output() showUserNftChange = new EventEmitter<boolean>();
-    
+
     logout() {
       this.authService.logout();
     }

@@ -28,6 +28,7 @@ import { SidemenuComponent } from './parts/sidemenu/sidemenu.component';
 import { UserNftModule } from '../user-nft/user-nft.module';
 import { CookieService } from 'ngx-cookie-service';
 import {SocialLoginModule, GoogleLoginProvider, SocialAuthServiceConfig, GoogleSigninButtonModule, } from '@abacritt/angularx-social-login';
+import { ModalComponent } from './galleries/modal/modal.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import {SocialLoginModule, GoogleLoginProvider, SocialAuthServiceConfig, GoogleS
     TrendGalleriesComponent,
     BackgroundImageDirective,
     SidemenuComponent,
+    ModalComponent,
 
   ],
   imports: [

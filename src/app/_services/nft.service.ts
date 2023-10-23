@@ -74,7 +74,7 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
     return this.http.get<Nft[]>(url,{params});
   }
   deleteNft(id:number):Observable<any>{
-    return this.http.delete<Nft>(this.apiUrl + id, {headers:this.httoptions});
+    return this.http.delete<Nft>(this.apiUrl +'/' +id, {headers:this.httoptions});
 }
 
 }

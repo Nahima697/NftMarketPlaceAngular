@@ -15,6 +15,7 @@ import { JwtInterceptor } from './_services/jwt-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
+
   ],
   imports: [
     BrowserModule,

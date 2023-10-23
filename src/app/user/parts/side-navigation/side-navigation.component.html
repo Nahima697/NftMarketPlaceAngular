@@ -18,7 +18,7 @@
             <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
               <li class="w-100">
                 <button (click)="showUpdateUserFormClick()"class="btn px-0 text-purple">
-                  <span class="d-none d-sm-inline text-purple bi-people">Met à jour ton profil</span>
+                  <i class="fs-4 bi-people text-purple"></i><span class="d-none d-sm-inline text-purple">Profil</span>
                 </button>
               </li>
             </ul>
@@ -47,7 +47,7 @@
           </li>
           <li>
             <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-              <i class="fs-4 bi-grid text-purple"></i> <span class="ms-1 d-none d-sm-inline text-purple">Tes Nfts</span>
+              <i class="fs-4 bi-grid text-purple"></i> <span class="ms-1 d-none d-sm-inline text-purple">Nfts</span>
             </a>
             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
               <li class="w-100">
@@ -55,17 +55,14 @@
                   <span class="d-none d-sm-inline text-purple">Ajouter un Nft</span>
                 </button>
               </li>
+
               <li class="w-100" *ngFor="let nft of nfts">
                 <a [routerLink]="['/nft', nft.id]" class="nav-link px-0 text-purple">
                   <span class="d-none d-sm-inline text-purple">{{nft.name}}</span>
                 </a>
+                <app-delete-nft [nft]="nft"> supprimer le nft </app-delete-nft>
               </li>
             </ul>
-          </li>
-          <li>
-            <a href="#" class="nav-link px-0 align-middle">
-              <i class="fs-4 bi-people text-purple"></i> <span class="ms-1 d-none d-sm-inline text-purple">Customers</span>
-            </a>
           </li>
         </ul>
         <hr>
