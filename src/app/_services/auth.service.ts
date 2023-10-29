@@ -6,7 +6,6 @@ import { environment } from 'environnement';
 import { TokenUser, User } from 'src/app/interfaces/user';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-import { SocialUser } from '@abacritt/angularx-social-login';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -61,17 +60,17 @@ export class AuthService {
       this.currentUserSubject.next(tokenUser);
       this.router.navigate(['/user/connectedUser']);
     }
-    saveGoogleToken(token: string, user: User) {
-      const tokenGoogleUser: any = { idToken: token, user: user };
-      this.currentUserSubject.next(tokenGoogleUser);
-      this.cookieService.set('googleUser', JSON.stringify(tokenGoogleUser));
-      this.router.navigate(['/user/connectedUser']);
-    }
 
     isLogged(): boolean {
       const currentUser = this.cookieService.get('currentUser');
       const googleUser = this.cookieService.get('googleUser');
       return !!(currentUser || googleUser );
+    }
+    saveGoogleToken(token: string, user: User) {
+      const tokenGoogleUser: any = { idToken: token, user: user };
+      this.currentUserSubject.next(tokenGoogleUser);
+      this.cookieService.set('googleUser', JSON.stringify(tokenGoogleUser));
+      this.router.navigate(['/user/connectedUser']);
     }
 
     getToken(): string | null {

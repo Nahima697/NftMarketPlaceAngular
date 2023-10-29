@@ -7,7 +7,8 @@ import { authGuard } from '../_helper/auth.guard';
 const routes: Routes = [
   {path:'',component:ULayoutComponent,children : [
     {path: '',pathMatch:'full', redirectTo:'connectedUser'},
-  { path: 'connectedUser', component: ConnectedUserComponent,data: { name: 'user_connected' },canActivate: [authGuard]},
+  { path: 'connectedUser', component: ConnectedUserComponent,data: { name: 'user_connected' }
+  ,canActivate: [authGuard]},
 ]},
 ]
 

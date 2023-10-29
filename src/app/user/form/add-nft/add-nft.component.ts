@@ -38,20 +38,19 @@ export class AddNftComponent implements OnInit {
   onSubmit() {
     const nftData = {
       name: this.nftForm.get('name')?.value,
-      category: this.nftForm.get('category')?.value,
+      category: `api/categories/ ${this.nftForm.get('category')?.value}`,
       quantity: parseInt(this.nftForm.get('quantity')?.value, 10),
       dropDate: this.nftForm.get('dropDate')?.value,
       price: parseFloat(this.nftForm.get('price')?.value),
-      gallery: this.nftForm.get('gallery')?.value,
+      gallery: `api/galleries/${this.nftForm.get('gallery')?.value}`,
     };
 
     const formData = new FormData();
     formData.append('data', JSON.stringify(nftData));
     const imageFile = this.nftForm.get('image')?.value;
-    console.log(imageFile);
     formData.append('image', imageFile);
+
     this.nftService.addNft(formData, this.owner_id!).subscribe((data) => {
-      console.log(data);
     });
   }
 

@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/interfaces/user';
 import { UsersService } from 'src/app/_services/users.service';
 import { AuthService } from 'src/app/_services/auth.service';
+var bcrypt = require('bcryptjs');
 
 @Component({
   selector: 'app-register-form',
@@ -54,24 +55,30 @@ export class RegisterFormComponent implements OnInit {
       const usernameValue = this.username?.value ?? '';
       const emailValue = this.email?.value ?? '';
       const passwordValue = this.password?.value ?? '';
-
-      const user: User = {
-        firstName: firstNameValue,
-        lastName: lastNameValue,
-        username: usernameValue,
-        email: emailValue,
-        password: passwordValue,
-      };
-
-      this.usersService.createUser(user).subscribe(
-        (response) => {
-          console.log('Utilisateur créé avec succès :', response);
-          this.registerForm.reset();
-        },
-        (error) => {
-          console.error('Erreur lors de la création de l\'utilisateur :', error);
+      bcrypt.hash(passwordValue, 10, (err:any, hash:any) => {
+        if (err) {
+          console.error('Erreur lors du hachage du mot de passe :', err);
+          return;
         }
-      );
+
+        const user: User = {
+          firstName: firstNameValue,
+          lastName: lastNameValue,
+          username: usernameValue,
+          email: emailValue,
+          password: hash,
+        };
+
+        this.usersService.createUser(user).subscribe(
+          (response) => {
+
+            this.registerForm.reset();
+          },
+          (error) => {
+            console.error('Erreur lors de la création de l\'utilisateur :', error);
+          }
+        );
+      });
     }
   }
   registerWithGoogle() {
