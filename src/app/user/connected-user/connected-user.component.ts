@@ -54,4 +54,5 @@ export class ConnectedUserComponent implements OnInit {
             console.log(dataCategory);
           })
   }
+  
 }
