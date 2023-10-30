@@ -4,15 +4,14 @@ import { Observable } from 'rxjs';
 import { Nft } from '../interfaces/nft';
 import { creator } from '../interfaces/createurs';
 import { AuthService } from './auth.service';
+import { environment } from 'environnement';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class NftService {
-  apiUrl:string ='https://127.0.0.1:8000/api/nfts'
-  apiUrlTrend: string ='https://127.0.0.1:8000/api/nfts?itemsPerPage=3&order%5BdropDate%5D=desc'
-  apiUrlHight: string ='https://127.0.0.1:8000/api/nfts?page=1&itemsPerPage=1&order%5BsaleDate%5D=desc'
+
 
   token = this.authservice.currentUserValue?.token;
  httoptions = new HttpHeaders({
@@ -23,30 +22,29 @@ export class NftService {
 constructor(private http: HttpClient,private authservice:AuthService) { }
 
   getAll(): Observable<Nft[]> {
-    return this.http.get<Nft[]>(this.apiUrl)
+    return this.http.get<Nft[]>(`${environment.apiUrl}/nfts`)
   }
 
   getOne(id : number) :Observable<Nft> {
-    return this.http.get<Nft>(this.apiUrl+'/'+ id )
+    return this.http.get<Nft>(`${environment.apiUrl}/nfts/${id}`)
   }
 
   getUserFromNft(id:number):Observable<creator> {
-    return this.http.get<creator>(this.apiUrl+'/'+ id +"/"+"user")
+    return this.http.get<creator>(`${environment.apiUrl}/nfts/${id}/user`)
   }
 
 
   getTrendNfts():Observable<Nft>{
-    return this.http.get<Nft>(this.apiUrlTrend)
+    return this.http.get<Nft>(`${environment.apiUrl}/nfts?itemsPerPage=3&order%5BdropDate%5D=desc`)
   }
 
   getHightlightNft():Observable<Nft[]> {
-  return this.http.get<Nft[]>(this.apiUrlHight)
+  return this.http.get<Nft[]>(`${environment.apiUrl}/nfts?page=1&itemsPerPage=1&order%5BsaleDate%5D=desc`)
   }
 
   addNft(nft: FormData, owner: string | number): Observable<Nft> {
     nft.append('owner', owner.toString());
-    console.log(this.apiUrl, nft);
-    return this.http.post<Nft>(this.apiUrl, nft, {headers:this.httoptions});
+    return this.http.post<Nft>(`${environment.apiUrl}/nfts`, nft, {headers:this.httoptions});
   }
 
   getFilteredNfts(filterValues: any): Observable<Nft[]>  {
@@ -70,11 +68,11 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
     if (filterValues.maxPrice) {
       params= params.set('price[lt]',filterValues.maxPrice);
     }
-    const url = `${this.apiUrl}?`;
+    const url = `${environment.apiUrl}/nfts`;
     return this.http.get<Nft[]>(url,{params});
   }
   deleteNft(id:number):Observable<any>{
-    return this.http.delete<Nft>(this.apiUrl +'/' +id, {headers:this.httoptions});
+    return this.http.delete<Nft>(`${environment.apiUrl}/nfts/${id}`, {headers:this.httoptions});
 }
 
 }

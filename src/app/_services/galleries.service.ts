@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Gallery } from '../interfaces/gallery';
 import { Nft } from '../interfaces/nft';
+import { environment } from 'environnement';
 
 
 @Injectable({
@@ -21,18 +22,18 @@ export class GalleriesService {
 
 
   getGalleries(): Observable<Gallery[]> {
-    return this.http.get<Gallery[]>(this.apiUrl);
+    return this.http.get<Gallery[]>(`${environment.apiUrl}/galleries`);
   }
   getTrendGalleries(): Observable<Gallery[]> {
-    return this.http.get<Gallery[]>(this.apiUrl+'?itemsPerPage=3');
+    return this.http.get<Gallery[]>(`${environment.apiUrl}/galleries?itemsPerPage=3`);
   }
   getNftsByGalleries(id: number): Observable<Nft[]> {
-    return this.http.get<Nft[]>(this.apiUrl +'/'+ id );
+    return this.http.get<Nft[]>(`${environment.apiUrl}/galleries/${id}`);
   }
 
   addGallery(gallery: Gallery, owner:string|number): Observable<Gallery> {
     gallery.owner = owner;
-    return this.http.post<Gallery>(this.apiUrl, gallery, { headers: this.httoptions });
+    return this.http.post<Gallery>(`${environment.apiUrl}/galleries`, gallery, { headers: this.httoptions });
 }
 
 }

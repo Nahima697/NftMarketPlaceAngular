@@ -55,18 +55,13 @@ export class RegisterFormComponent implements OnInit {
       const usernameValue = this.username?.value ?? '';
       const emailValue = this.email?.value ?? '';
       const passwordValue = this.password?.value ?? '';
-      bcrypt.hash(passwordValue, 10, (err:any, hash:any) => {
-        if (err) {
-          console.error('Erreur lors du hachage du mot de passe :', err);
-          return;
-        }
 
         const user: User = {
           firstName: firstNameValue,
           lastName: lastNameValue,
           username: usernameValue,
           email: emailValue,
-          password: hash,
+          password: passwordValue,
         };
 
         this.usersService.createUser(user).subscribe(
@@ -78,7 +73,7 @@ export class RegisterFormComponent implements OnInit {
             console.error('Erreur lors de la création de l\'utilisateur :', error);
           }
         );
-      });
+      ;
     }
   }
   registerWithGoogle() {
