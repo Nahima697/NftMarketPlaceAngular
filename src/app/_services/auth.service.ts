@@ -16,6 +16,7 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<TokenUser | null>;
   public currentUser: Observable<TokenUser | null>;
   private apiGoogle ='https://127.0.0.1:8000/connect/google';
+  private authUrl ='https://127.0.0.1:8000'
 
   constructor(
     private http: HttpClient,
@@ -27,7 +28,6 @@ export class AuthService {
 
     this.currentUserSubject = new BehaviorSubject<TokenUser | null>(null);
     this.currentUser = this.currentUserSubject.asObservable();
-
     const storedUser = this.cookieService.get('currentUser');
     if (storedUser) {
         const user = JSON.parse(storedUser);
@@ -40,7 +40,7 @@ export class AuthService {
     }
 
     login(username: string, password: string) {
-        return this.http.post<any>(`${environment.apiUrl}/auth`, { username, password })
+        return this.http.post<any>(`${this.authUrl}/auth`, { username, password })
             .pipe(map(user => {
                 this.cookieService.set('currentUser', JSON.stringify(user));
                 this.currentUserSubject.next(user);

@@ -3,7 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/interfaces/user';
 import { UsersService } from 'src/app/_services/users.service';
 import { AuthService } from 'src/app/_services/auth.service';
-var bcrypt = require('bcryptjs');
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register-form',
@@ -11,7 +12,10 @@ var bcrypt = require('bcryptjs');
   styleUrls: ['./register-form.component.sass'],
 })
 export class RegisterFormComponent implements OnInit {
-  constructor(private fb: FormBuilder, private usersService: UsersService,private authService:AuthService) {}
+  constructor(private fb: FormBuilder,
+     private usersService: UsersService,
+     private authService:AuthService,
+     private router: Router) {}
 
   registerForm = this.fb.group({
     firstName: ['', Validators.required],
@@ -61,13 +65,13 @@ export class RegisterFormComponent implements OnInit {
           lastName: lastNameValue,
           username: usernameValue,
           email: emailValue,
-          password: passwordValue,
+          plainPassword: passwordValue,
         };
-
+        console.log(user)
         this.usersService.createUser(user).subscribe(
           (response) => {
-
-            this.registerForm.reset();
+            console.log(user)
+           
           },
           (error) => {
             console.error('Erreur lors de la création de l\'utilisateur :', error);

@@ -10,7 +10,8 @@ export interface User
   avatar?:string;
   description?:string;
   email:string;
-  password:string;
+  password?:string;
+  plainPassword:string;
   roles?:string,
   artworksCount?:creator;
   totalSales?:creator;
