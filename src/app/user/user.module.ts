@@ -14,7 +14,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddNftComponent } from './form/add-nft/add-nft.component';
 import { ChartComponent } from './chart/chart.component';
 import { UserNftModule } from '../user-nft/user-nft.module';
-import { DeleteNftComponent } from './delete-nft/delete-nft.component';
+import { UserUpdateComponent } from './form/user-update/user-update.component';
+
 
 
 
@@ -29,7 +30,7 @@ import { DeleteNftComponent } from './delete-nft/delete-nft.component';
     SideNavigationComponent,
     UpdateUserComponent,
     ChartComponent,
-    DeleteNftComponent,
+    UserUpdateComponent,
   ],
   imports: [
     CommonModule,

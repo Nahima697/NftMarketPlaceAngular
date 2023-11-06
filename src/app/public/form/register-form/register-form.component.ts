@@ -71,7 +71,7 @@ export class RegisterFormComponent implements OnInit {
         this.usersService.createUser(user).subscribe(
           (response) => {
             console.log(user)
-           
+            this.router.navigate(['/auth']);
           },
           (error) => {
             console.error('Erreur lors de la création de l\'utilisateur :', error);

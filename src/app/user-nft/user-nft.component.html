@@ -36,9 +36,10 @@
             <img [src]="'http://localhost/nftMarketplace/uploads/' + nft.image" [alt]="nft.name" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title text-white">{{ nft.name }}</h5>
-              <!-- <p class="card-text">{{ nft.description }}</p> -->
-              <p class="card-text text-white">Prix : {{ nft.price }}</p>
-
+              <p class="card-text text-white">Prix : {{ nft.price}} ETH</p>
+            <ng-container *ngIf="authService.currentUser | async as user">
+              <app-delete-nft [nft]="nft"> supprimer le nft </app-delete-nft>
+            </ng-container>
               <a [routerLink]="['/nft', nft.id]" class="btn btn-dark">Voir le détail</a>
             </div>
           </div>

@@ -22,6 +22,7 @@ export class JwtInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     let currentUser = this.authService.currentUserValue;
+    let tokenGoogleUser = this.authService.currentUserValue;
 
     if (
       request.url !== `${environment.apiUrl}/auth`
@@ -30,7 +31,7 @@ export class JwtInterceptor implements HttpInterceptor {
       if (currentUser && currentUser.token) {
         const headers = new HttpHeaders().set(
           'Authorization',
-          `Bearer ${currentUser.token}`
+          `Bearer ${currentUser.token || currentUser.idToken}`
         );
 
         request = request.clone({
@@ -53,7 +54,7 @@ export class JwtInterceptor implements HttpInterceptor {
       })
     );
   }
-  
+
   private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
     if (!this.isRefreshing) {
       this.isRefreshing = true;

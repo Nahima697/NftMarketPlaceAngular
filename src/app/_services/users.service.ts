@@ -44,11 +44,10 @@ export class UsersService {
     return this.http.get<User>(`${environment.apiUrl}/users`+'/'+ id)
   }
 getUserIdByGoogleId(id:string):Observable<User> {
-  return this.http.get<User>(`${environment.apiUrl}/google/`+ id )
+  return this.http.get<User>(`${environment.apiUrl}/users/google/`+ id )
 }
-  checkIfUsernameExists(username: string): Observable<boolean> {
-
-    return this.http.get<boolean>(`${environment.apiUrl}/users`, { params: { username } });
+ updateUser(id: number,username: string,password:string): Observable<string[]> {
+    return this.http.put<string[]>(`${environment.apiUrl}/users/${id}`, { params: { username,password} });
   }
 
   createUser(user:User):Observable<User> {

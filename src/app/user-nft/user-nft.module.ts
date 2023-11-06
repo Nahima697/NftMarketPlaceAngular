@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserNftComponent } from './user-nft.component';
 import { RouterModule } from '@angular/router';
+import { DeleteNftModule } from '../delete-nft/delete-nft.module';
 
 
 
@@ -10,6 +11,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
+    DeleteNftModule
   ],
   exports: [UserNftComponent],
 })

@@ -60,7 +60,6 @@
                 <a [routerLink]="['/nft', nft.id]" class="nav-link px-0 text-purple">
                   <span class="d-none d-sm-inline text-purple">{{nft.name}}</span>
                 </a>
-                <app-delete-nft [nft]="nft"> supprimer le nft </app-delete-nft>
               </li>
             </ul>
           </li>
@@ -73,8 +72,9 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
             <li><a class="dropdown-item" [routerLink]="['/galleries']">MarketPlace</a></li>
-            <li><a class a="dropdown-item" [routerLink]="['/home']">Home</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/profil',user?.id]" >Profil</a></li>
+            <li><a class ="dropdown-item" [routerLink]="['/home']">Home</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/profil',user?.id]" >Voir le Profil</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/user/updateProfil',user?.id]" >Configuration</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>

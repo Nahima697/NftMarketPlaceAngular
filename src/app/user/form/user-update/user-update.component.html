@@ -1,0 +1,12 @@
+<form [formGroup]="updateUserForm "(ngSubmit)="onSubmit()"method="post">
+  <div class="mb-3">
+    <label for="username" class="form-label text-white">Identifiant</label>
+    <input type="text" class="form-control" id="username" name="username" formControlName="username">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label text-white">Mot de passe</label>
+    <input type ="password" class="form-control" id="password" name="password" formControlName="password" >
+  </div>
+  <button type="submit" class="btn btn-primary">Mettre à jour le profil</button>
+</form>
+
