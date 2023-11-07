@@ -37,15 +37,15 @@ export class UsersService {
   getAll(): Observable<TopCreator[]> {
     return this.http.get<TopCreator[]>(`${environment.apiUrl}/users`)
   }
- getUsers():Observable<User[]> {
-  return this.http.get<User[]>(`${environment.apiUrl}/users`)
- }
+  getUsers():Observable<User[]> {
+    return this.http.get<User[]>(`${environment.apiUrl}/users`)
+  }
   getUser(id:number): Observable<User> {
     return this.http.get<User>(`${environment.apiUrl}/users`+'/'+ id)
   }
-getUserIdByGoogleId(id:string):Observable<User> {
-  return this.http.get<User>(`${environment.apiUrl}/users/google/`+ id )
-}
+  getUserIdByGoogleId(id:string):Observable<User> {
+    return this.http.get<User>(`${environment.apiUrl}/users/google/`+ id )
+  }
  updateUser(id: number,username: string,password:string): Observable<string[]> {
     return this.http.put<string[]>(`${environment.apiUrl}/users/${id}`, { params: { username,password} });
   }

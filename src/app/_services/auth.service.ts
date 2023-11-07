@@ -40,7 +40,7 @@ export class AuthService {
     }
 
     login(username: string, password: string) {
-        return this.http.post<any>(`${environment}/auth`, { username, password })
+        return this.http.post<any>(`${environment.aut}`, { username, password })
             .pipe(map(user => {
                 this.cookieService.set('currentUser', JSON.stringify(user));
                 this.currentUserSubject.next(user);
