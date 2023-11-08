@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import * as Aos from 'aos';
+
 
 @Component({
   selector: 'app-root',
@@ -12,8 +12,7 @@ export class AppComponent implements OnInit{
   constructor(private modalService: NgbModal) {
   }
   ngOnInit(): void {
-    Aos.init({disable: 'mobile'});
-    Aos.refresh();
+
   }
   public open(modal: any): void {
     this.modalService.open(modal);

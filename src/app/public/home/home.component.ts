@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Aos from 'aos';
+
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,6 @@ import * as Aos from 'aos';
 })
 export class HomeComponent implements OnInit {
 ngOnInit(): void {
-  Aos.init();
-  Aos.refresh();
+
 }
 }

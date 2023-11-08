@@ -2,7 +2,6 @@ import { Component,OnInit } from '@angular/core';
 import { TopCreator } from '../../interfaces/createurs';
 import { UsersService } from 'src/app/_services/users.service';
 import { Nft } from 'src/app/interfaces/nft';
-import * as Aos from 'aos';
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,8 +24,7 @@ export class TopCreateurComponent implements OnInit {
 
   });
 
-    Aos.init({disable: 'mobile'});
-    Aos.refresh();
+
 
   }
   navigateToUserProfile(creatorId: number) {

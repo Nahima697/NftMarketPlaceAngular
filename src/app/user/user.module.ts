@@ -18,8 +18,6 @@ import { UserUpdateComponent } from './form/user-update/user-update.component';
 
 
 
-
-
 @NgModule({
   declarations: [
     ULayoutComponent,
