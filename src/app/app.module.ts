@@ -4,7 +4,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-
 import { CookieService } from 'ngx-cookie-service';
 import { NgChartsModule } from 'ng2-charts';
 import { PublicModule } from './public/public.module';

@@ -24,13 +24,29 @@ export class AddGalleryComponent implements OnInit {
     this.owner_id = this.retrieveOwnerId();
     this.galleryForm = this.formBuilder.group({
       name: ['', Validators.required],
+      description :['', Validators.required],
     });
   }
+  get name() {
+    return this.galleryForm.get('name');
+  }
+
+  get description() {
+    return this.galleryForm.get('description');
+  }
+
 
   onSubmit() {
     if (this.galleryForm.valid && this.owner_id !== undefined) {
-      const formData = this.galleryForm.value;
-      this.galleryService.addGallery(formData, this.owner_id).subscribe((data) => {
+      const nameValue = this.name?.value ?? '';
+      const descriptionValue = this.description?.value ?? '';
+      const gallerie = {
+        name: nameValue,
+        description: descriptionValue,
+        owner : this.owner_id,
+        nfts: []
+      }
+      this.galleryService.addGallery(gallerie).subscribe((data) => {
         this.galleryForm.reset();
       });
     }

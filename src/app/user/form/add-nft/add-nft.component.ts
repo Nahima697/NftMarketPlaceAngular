@@ -51,6 +51,7 @@ export class AddNftComponent implements OnInit {
     formData.append('image', imageFile);
 
     this.nftService.addNft(formData, this.owner_id!).subscribe((data) => {
+      this.nftForm.reset();
     });
   }
 

@@ -2,12 +2,12 @@ import { creator } from "./createurs";
 import { Nft } from "./nft";
 export interface Gallery
 {
-  id: number,
+  id?: number,
   name: string,
-  quantity: number,
+  quantity?: number,
   owner:creator|any,
-  nft_id: number,
+  nft_id?: number,
   nfts: Nft[],
   description:string,
-  nftName: string
+  nftName?: string
 }

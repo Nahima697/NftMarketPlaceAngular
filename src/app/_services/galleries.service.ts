@@ -31,8 +31,7 @@ export class GalleriesService {
     return this.http.get<Nft[]>(`${environment.apiUrl}/galleries/${id}`);
   }
 
-  addGallery(gallery: Gallery, owner:string|number): Observable<Gallery> {
-    gallery.owner = owner;
+  addGallery(gallery: Gallery): Observable<Gallery> {
     return this.http.post<Gallery>(`${environment.apiUrl}/galleries`, gallery, { headers: this.httoptions });
 }
 

@@ -22,7 +22,6 @@ export class JwtInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     let currentUser = this.authService.currentUserValue;
-    let tokenGoogleUser = this.authService.currentUserValue;
 
     if (
       request.url !== `${environment.apiUrl}/auth`
@@ -31,7 +30,7 @@ export class JwtInterceptor implements HttpInterceptor {
       if (currentUser && currentUser.token) {
         const headers = new HttpHeaders().set(
           'Authorization',
-          `Bearer ${currentUser.token || currentUser.idToken}`
+          `Bearer ${currentUser.token}`
         );
 
         request = request.clone({
@@ -47,7 +46,7 @@ export class JwtInterceptor implements HttpInterceptor {
           !request.url.includes('auth') &&
           error.status === 401
         ) {
-          return this.handle401Error(request, next);
+          return throwError(() => error);
         }
 
         return throwError(() => error);
@@ -55,26 +54,26 @@ export class JwtInterceptor implements HttpInterceptor {
     );
   }
 
-  private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
-    if (!this.isRefreshing) {
-      this.isRefreshing = true;
+//   private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
+//     if (!this.isRefreshing) {
+//       this.isRefreshing = true;
 
-      if (this.cookieService.get('currentUser')) {
-        return this.authService.refreshToken().pipe(
-          switchMap(() => {
-            this.isRefreshing = false;
+//       if (this.cookieService.get('currentUser')) {
+//         return this.authService.refreshToken().pipe(
+//           switchMap(() => {
+//             this.isRefreshing = false;
 
-            return next.handle(request);
-          }),
-          catchError((error) => {
-            this.isRefreshing = false;
+//             return next.handle(request);
+//           }),
+//           catchError((error) => {
+//             this.isRefreshing = false;
 
-            return throwError(() => error);
-          })
-        );
-      }
-    }
+//             return throwError(() => error);
+//           })
+//         );
+//       }
+//     }
 
-    return next.handle(request);
-}
+//     return next.handle(request);
+// }
 }
