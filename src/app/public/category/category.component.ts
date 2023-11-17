@@ -4,6 +4,7 @@ import { Nft } from 'src/app/interfaces/nft';
 import { CategoryService } from 'src/app/_services/category.service';
 import { NftService } from 'src/app/_services/nft.service';
 
+
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -12,7 +13,6 @@ import { NftService } from 'src/app/_services/nft.service';
 export class CategoryComponent {
   categories! :Category[];
   nfts:Nft[] = []
-
   constructor(
     public CategoryService: CategoryService,
     public NftService:NftService
@@ -23,6 +23,7 @@ export class CategoryComponent {
         this.categories = data;
         this.categories.forEach((category: Category) => {
           category.nfts = data;
+
         console.log(category.nfts)
         });
     }

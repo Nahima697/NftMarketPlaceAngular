@@ -4,6 +4,7 @@ import { Gallery } from 'src/app/interfaces/gallery';
 import { Nft } from 'src/app/interfaces/nft';
 import { GalleriesService } from 'src/app/_services/galleries.service';
 
+
 @Component({
   selector: 'app-gallery-detail',
   templateUrl: './gallery-detail.component.html',
@@ -27,7 +28,7 @@ gallery!:Gallery;
         console.log(data);
         this.gallery = data;
         this.nfts = data.nfts;
-        
+
         console.log(this.nfts);
       });
     };

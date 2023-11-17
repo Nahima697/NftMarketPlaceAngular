@@ -9,11 +9,14 @@ import { NgChartsModule } from 'ng2-charts';
 import { PublicModule } from './public/public.module';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { JwtInterceptor } from './_services/jwt-interceptor.service';
+import { LazyLoadImagesDirective } from './_directives/lazy-load-images.directive';
+import {provideClientHydration} from '@angular/platform-browser';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LazyLoadImagesDirective,
 
   ],
   imports: [
@@ -23,7 +26,9 @@ import { JwtInterceptor } from './_services/jwt-interceptor.service';
     NgbModule,
     NgChartsModule,
     PublicModule,
-    SocialLoginModule
+    SocialLoginModule,
+
+
   ],
 
   providers: [
@@ -46,6 +51,7 @@ import { JwtInterceptor } from './_services/jwt-interceptor.service';
       } as SocialAuthServiceConfig,
     },
     CookieService,
+    provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })

@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/nft-marketplace",
+            "outputPath": "dist/nftMarketplace/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -102,6 +102,61 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/nftMarketplace/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "sass"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "nftMarketplace:build:development",
+              "serverTarget": "nftMarketplace:server:development"
+            },
+            "production": {
+              "browserTarget": "nftMarketplace:build:production",
+              "serverTarget": "nftMarketplace:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "nftMarketplace:build:production",
+              "serverTarget": "nftMarketplace:server:production"
+            },
+            "development": {
+              "browserTarget": "nftMarketplace:build:development",
+              "serverTarget": "nftMarketplace:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

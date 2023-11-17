@@ -35,4 +35,5 @@ export class GalleriesService {
     return this.http.post<Gallery>(`${environment.apiUrl}/galleries`, gallery, { headers: this.httoptions });
 }
 
+
 }

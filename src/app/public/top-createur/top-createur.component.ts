@@ -3,6 +3,7 @@ import { TopCreator } from '../../interfaces/createurs';
 import { UsersService } from 'src/app/_services/users.service';
 import { Nft } from 'src/app/interfaces/nft';
 import { Router } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common'
 
 @Component({
   selector: 'app-top-createur',
