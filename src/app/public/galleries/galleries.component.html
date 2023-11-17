@@ -10,7 +10,7 @@
             <div class="d-flex justify-content-between align-items-center">
               <div class="user-info d-flex align-items-center">
                 <img  [src]="'http://localhost:8000/uploads/' + gallery.owner.avatar"
-                 [alt]="gallery.owner.username" class="avatarSmall me-2" loading="eager">
+                 [alt]="gallery.owner.username" class="avatarSmall me-2" loading="lazy">
                 <span class="text-white fw-bold">{{ gallery.owner.username }}</span>
               </div>
               <a [routerLink]="['/gallery/', gallery.id]" class="btn btn-primary">
