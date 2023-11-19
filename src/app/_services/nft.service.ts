@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Nft } from '../interfaces/nft';
 import { creator } from '../interfaces/createurs';
 import { AuthService } from './auth.service';
-import { environment } from 'environnement';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

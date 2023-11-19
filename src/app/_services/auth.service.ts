@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environment } from 'environnement';
+import { environment } from 'src/environments/environment';
 import { TokenUser, User } from 'src/app/interfaces/user';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';

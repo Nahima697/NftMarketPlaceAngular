@@ -6,7 +6,7 @@ import { TopCreator } from '../interfaces/createurs';
 import { Nft } from '../interfaces/nft';
 import { User } from '../interfaces/user';
 import { AuthService } from './auth.service';
-import { environment } from 'environnement';
+import { environment } from 'src/environments/environment';
 
 
 

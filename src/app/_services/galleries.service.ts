@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Gallery } from '../interfaces/gallery';
 import { Nft } from '../interfaces/nft';
-import { environment } from 'environnement';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({

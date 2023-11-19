@@ -8,7 +8,7 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable, catchError, switchMap, throwError } from 'rxjs';
-import { environment } from 'environnement';
+import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import { CookieService } from 'ngx-cookie-service';
 
