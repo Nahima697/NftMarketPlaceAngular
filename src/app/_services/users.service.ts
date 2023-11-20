@@ -16,6 +16,7 @@ import { environment } from 'src/environments/environment';
 export class UsersService {
   constructor(private http: HttpClient,private authservice:AuthService) { }
   token = this.authservice.currentUserValue?.token;
+  imageUrl = 'https://127.0.0.1:8000/media/cache/resolve/thumbnail_web_path/uploads/'
   httoptions = new HttpHeaders({
     'Content-Type': 'multipart/form-data',
     'Accept': 'application/json',
@@ -58,5 +59,7 @@ export class UsersService {
     formData.append('id', owner.toString());
     return this.http.post<User>(`${environment.apiUrl}/${owner}/avatar/description`, formData, { headers: this.httoptions });
   }
-
+    getImage(image:string) :Observable<string> {
+    return this.http.get<string>(this.imageUrl + image)
+  }
 }

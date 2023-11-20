@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class GalleriesService {
   apiUrl: string = 'https://127.0.0.1:8000/api/galleries';
-
+  imageUrl = 'https://127.0.0.1:8000/media/cache/resolve/thumbnail_web_path/uploads/'
   constructor(
     private http: HttpClient) {}
 
@@ -34,6 +34,8 @@ export class GalleriesService {
   addGallery(gallery: Gallery): Observable<Gallery> {
     return this.http.post<Gallery>(`${environment.apiUrl}/galleries`, gallery, { headers: this.httoptions });
 }
-
+  getImage(image:string) :Observable<string> {
+    return this.http.get<string>(this.imageUrl + image)
+  }
 
 }

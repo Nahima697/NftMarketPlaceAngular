@@ -12,7 +12,8 @@ import { NftService } from 'src/app/_services/nft.service';
 })
 export class CategoryComponent {
   categories! :Category[];
-  nfts:Nft[] = []
+  nfts:Nft[] = [];
+  image?:string ;
   constructor(
     public CategoryService: CategoryService,
     public NftService:NftService
@@ -23,11 +24,15 @@ export class CategoryComponent {
         this.categories = data;
         this.categories.forEach((category: Category) => {
           category.nfts = data;
-
-        console.log(category.nfts)
+            this.image = category['image'];
+            console.log(this.image)
+            this.CategoryService.getImage(this.image).subscribe((image) => {
+              category.image = image}
+              );
+          })
         });
     }
-    )};
+    };
 
-  }
+
 

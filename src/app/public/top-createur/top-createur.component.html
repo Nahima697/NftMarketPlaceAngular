@@ -12,7 +12,8 @@
         <div class="row d-flex">
           <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5 animate__animated" *ngFor="let creator of topCreators">
             <div class="card card-artist d-flex flex-column align-items-center justify-content-center">
-              <a (click)="navigateToUserProfile(creator.id)"><img  [src]="'https://localhost:8000/uploads/' + creator.avatar" class="artistAvatar" loading="lazy"></a>
+              <a (click)="navigateToUserProfile(creator.id)">
+                <img  [src]="'http://localhost:8000/media/cache/thumbnail_web_path/uploads/' + creator.avatar+'.webp'" class="artistAvatar" loading="lazy"></a>
               <h4 class="text-white">{{ creator.username | titlecase }}</h4>
               <p class="text-white">Total Ventes {{ creator.totalSales }} ETH</p>
             </div>

@@ -12,7 +12,8 @@ import { environment } from 'src/environments/environment';
 
 export class NftService {
 
-
+  imageUrl = 'https://127.0.0.1:8000/media/cache/resolve/thumbnail_web_path/uploads/'
+  
   token = this.authservice.currentUserValue?.token;
  httoptions = new HttpHeaders({
     'Content-Type': 'multipart/form-data',
@@ -28,7 +29,9 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
   getOne(id : number) :Observable<Nft> {
     return this.http.get<Nft>(`${environment.apiUrl}/nfts/${id}`)
   }
-
+  getImage(image:string) :Observable<string> {
+    return this.http.get<string>(this.imageUrl + image)
+  }
   getUserFromNft(id:number):Observable<creator> {
     return this.http.get<creator>(`${environment.apiUrl}/nfts/${id}/user`)
   }

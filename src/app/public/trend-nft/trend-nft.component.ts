@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { creator } from 'src/app/interfaces/createurs';
 import { Nft } from 'src/app/interfaces/nft';
 import { NftService } from 'src/app/_services/nft.service';
 
@@ -10,12 +9,20 @@ import { NftService } from 'src/app/_services/nft.service';
 })
 export class TrendNftComponent implements OnInit {
   nfts: Nft[] = [];
+  image?:string ;
   constructor(private nftService: NftService) {}
 
   ngOnInit(): void {
     this.nftService.getTrendNfts().subscribe((data: any) => {
       console.log(data);
       this.nfts = data;
+      this.nfts.forEach((nft) => {
+        this.image = nft['image'];
+        console.log(this.image)
+        this.nftService.getImage(this.image).subscribe((image) => {
+          nft.image = image}
+          );
+      })
     });
   }
 }

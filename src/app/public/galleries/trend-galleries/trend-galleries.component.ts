@@ -11,7 +11,8 @@ import { Nft } from 'src/app/interfaces/nft';
 })
 export class TrendGalleriesComponent implements OnInit{
   galleries!:Gallery[];
-  @Input()nfts? :Nft[] = []
+  @Input()nfts? :Nft[] = [];
+  image?:any;
 
   constructor(
     public GalleriesService: GalleriesService,
@@ -22,11 +23,13 @@ export class TrendGalleriesComponent implements OnInit{
     this.GalleriesService.getTrendGalleries().subscribe((data: any) => {
         this.galleries = data;
         this.galleries.forEach((gallery: Gallery) => {
-        this.nfts = gallery.nfts;
-          console.log(this.nfts);
+          gallery.nfts.forEach((nft: Nft) => {
+            this.NftService.getImage(nft.image).subscribe((image) => {
+              nft.image = image;
+            });
           });
         });
-      }
-  ;
+      });
 
-}
+    }
+  }
