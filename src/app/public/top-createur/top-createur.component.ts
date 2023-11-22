@@ -16,17 +16,16 @@ export class TopCreateurComponent implements OnInit {
   nfts!:Nft[];
   constructor(private UsersService:UsersService, private router: Router) {}
   ngOnInit(): void {
-
   this.UsersService.getAll().subscribe((data:any)=> {
     this.topCreators = [];
     this.topCreators = data.sort((a:any, b:any) => b.totalSales - a.totalSales);
     console.log(this.topCreators)
-    this.topCreators.forEach((creator) => {
-      this.UsersService.getImage(creator.avatar).subscribe((image) => {
-        creator.avatar = image;
-    })
+    // this.topCreators.forEach((creator) => {
+    //   this.UsersService.getImage(creator.avatar).subscribe((image) => {
+    //     creator.avatar = image;
+    // })
   });
-  });
+  // });
 
   }
   navigateToUserProfile(creatorId: number) {

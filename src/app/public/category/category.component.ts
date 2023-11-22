@@ -22,14 +22,14 @@ export class CategoryComponent {
   ngOnInit(): void {
     this.CategoryService.getCategories().subscribe((data: any) => {
         this.categories = data;
-        this.categories.forEach((category: Category) => {
-          category.nfts = data;
-            this.image = category['image'];
-            console.log(this.image)
-            this.CategoryService.getImage(this.image).subscribe((image) => {
-              category.image = image}
-              );
-          })
+        // this.categories.forEach((category: Category) => {
+        //   category.nfts = data;
+        //     this.image = category['image'];
+        //     console.log(this.image)
+        //     this.CategoryService.getImage(this.image).subscribe((image) => {
+        //       category.image = image}
+        //       );
+        //   })
         });
     }
     };

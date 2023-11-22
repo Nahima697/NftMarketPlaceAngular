@@ -16,13 +16,13 @@ export class TrendNftComponent implements OnInit {
     this.nftService.getTrendNfts().subscribe((data: any) => {
       console.log(data);
       this.nfts = data;
-      this.nfts.forEach((nft) => {
-        this.image = nft['image'];
-        console.log(this.image)
-        this.nftService.getImage(this.image).subscribe((image) => {
-          nft.image = image}
-          );
-      })
+      // this.nfts.forEach((nft) => {
+      //   this.image = nft['image'];
+      //   console.log(this.image)
+      //   this.nftService.getImage(this.image).subscribe((image) => {
+      //     nft.image = image}
+      //     );
+      // })
     });
   }
 }

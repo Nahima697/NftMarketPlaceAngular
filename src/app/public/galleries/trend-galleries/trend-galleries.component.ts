@@ -22,13 +22,13 @@ export class TrendGalleriesComponent implements OnInit{
   ngOnInit(): void {
     this.GalleriesService.getTrendGalleries().subscribe((data: any) => {
         this.galleries = data;
-        this.galleries.forEach((gallery: Gallery) => {
-          gallery.nfts.forEach((nft: Nft) => {
-            this.NftService.getImage(nft.image).subscribe((image) => {
-              nft.image = image;
-            });
-          });
-        });
+        // this.galleries.forEach((gallery: Gallery) => {
+        //   gallery.nfts.forEach((nft: Nft) => {
+        //     this.NftService.getImage(nft.image).subscribe((image) => {
+        //       nft.image = image;
+        //     });
+        //   });
+        // });
       });
 
     }
