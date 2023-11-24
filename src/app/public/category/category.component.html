@@ -1,20 +1,21 @@
-<section class="categories mt-5 mb-5">
-  <div class="container">
-    <div class="row mb-2">
-      <div class="col-lg-1"></div>
-      <div class="col-lg-11">
-        <h2 class="text-white">Categories</h2>
+
+<section class=" categories container mt-5 w-75">
+  <div class="row ">
+    <div class="col-lg-12">
+      <h2 class="text-white">Categories</h2>
         <div class="row d-flex flex-wrap">
           <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3" *ngFor="let category of categories">
             <div class="card card-artist">
-              <img src="../../../assets/images/Artist Avatar10.png" class="card-img-top" [alt]="category.wording">
+              <img src="https://images.unsplash.com/photo-1643408875993-d7566153dd89?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style="filter: blur(4px);" class="card-img-top" [alt]="category.wording">
               <div class="card-body text-center">
                 <h5 class="card-title text-white">{{ category.wording | titlecase }}</h5>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
   </div>
+
 </section>
+
+

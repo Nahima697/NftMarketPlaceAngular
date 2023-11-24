@@ -4,18 +4,18 @@
 
   <div class="row mt-3">
     <div class="col-lg-4" *ngFor="let gallery of galleries">
-      <div class="col-lg-12 p-3  " *ngIf="gallery.nfts && gallery.nfts.length > 0">
+      <div class="col-lg-12 p-5  " *ngIf="gallery.nfts && gallery.nfts.length > 0">
         <img src="../../../assets/images/nft.jpg" [alt]="gallery.name" class="collection">
         <div class="row ">
-          <div class="col-lg-3 p-1 "  *ngIf="gallery.nfts && gallery.nfts.length > 1">
+          <div class="col-lg-4  p-1"  *ngIf="gallery.nfts && gallery.nfts.length > 1">
             <img src="../../../assets/images/nft.jpg"  [alt]="gallery.nfts[1].name" class="img-fluid arrondi">
 
           </div>
-          <div class="col-lg-3 p-1"  *ngIf="gallery.nfts && gallery.nfts.length > 2">
+          <div class="col-lg-4 p-1"  *ngIf="gallery.nfts && gallery.nfts.length > 2">
             <img src="../../../assets/images/nft.jpg"  [alt]="gallery.nfts[2].name" class="img-fluid arrondi">
 
           </div>
-          <div class="col-lg-3 p-1">
+          <div class="col-lg-4 p-1">
             <a [routerLink]="['/gallery/', gallery.id]" class="btn collectionplus d-flex justify-content-center align-items-center">
               <p class="text-white fw-bold">Voir les {{gallery.nfts.length}} Nfts</p>
             </a>
@@ -28,53 +28,3 @@
 
 </section>
 
-<section class="mt-5 mb-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-1"></div>
-      <div class="col-lg-11">
-        <h2 class="text-white fw-bold">Collections Tendances</h2>
-        <p class="text-white">Regardez nos Collections tendance de la Semaine</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-1"></div>
-      <div class="col-lg-11 d-flex">
-        <div class="col-lg-4" *ngFor="let gallery of galleries">
-          <div class="row mb-2">
-            <div class="col-lg-12" *ngIf="gallery.nfts && gallery.nfts.length > 0">
-              <img src="../../../assets/images/nft.jpg" [alt]="gallery.name" class="collection">
-            </div>
-            <div class="row mt-3 p-0">
-              <div class="col-lg-4 m-0 p-0" *ngIf="gallery.nfts && gallery.nfts.length > 1">
-                <img src="../../../assets/images/nft.jpg"  [alt]="gallery.nfts[1].name" class="img-fluid">
-              </div>
-              <div class="col-lg-4 m-0 p-0" *ngIf="gallery.nfts && gallery.nfts.length > 2">
-                <img src="../../../assets/images/nft.jpg"  [alt]="gallery.nfts[2].name" class="img-fluid">
-              </div>
-              <div class="col-lg-4 m-0 p-0 d-flex justif-content-center align-content-center">
-                <a [routerLink]="['/gallery/', gallery.id]" class="btn collectionplus">
-                  <p class="text-white fw-bold">Voir les {{gallery.nfts.length}} Nfts</p>
-                </a>
-              </div>
-            </div>
-            </div>
-
-          <div class="row">
-            <div class="col-lg-12 mt-2">
-              <div class="row">
-                <h5 class="text-white">{{ gallery.name }} Nfts</h5>
-              </div>
-              <div class="row">
-                <div class="col-lg-12 d-flex">
-                  <img [src]="'http://localhost/nftMarketplace/uploads/' + gallery.owner.avatar" [alt]="gallery.owner.username" class="avatarsmall me-2">
-                  <p class="text-white fw-bold">{{ gallery.owner.username }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
