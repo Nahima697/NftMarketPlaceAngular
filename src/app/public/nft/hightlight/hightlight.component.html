@@ -1,16 +1,28 @@
 
-      <div *ngFor="let nft of nft$ | async">
-        <div class="hightlight container-fluid" [appBackgroundImage]="'http://localhost/nftMarketplace/uploads/' + nft.image">
-          <div class="info d-flex flex-column justify-content-around">
-            <h4 class="text-white mb-2">{{ nft.name }}</h4>
-            <div class="avatar btn d-flex mb-2">
-              <img [src]="'http://localhost/nftMarketplace/uploads/' + (nft.gallery.owner.avatar || '')" class="avatarsmall"  />
-              <h4 class="text-white mb-2">{{ nft.gallery.owner.username || '' }}</h4>
-            </div>
-            <div class="button">
-              <a [routerLink]="['/nfts/', nft.id]" class="btn btn-light">Voir les détails du NFT</a>
+      <div class="container-fluid">
+        <div *ngFor="let nft of nft$ | async">
+
+          <div class="hightlight"  style="background: url('../../../../assets/images/nft.jpg') center center/cover;">
+  
+            <div class="info d-flex flex-column justify-content-around">
+              <img src="../../../../assets/images/Avatar12.png" class="avatarsmall" style="width:7em"  />
+
+              <h4 class="text-white mb-2">{{ nft.gallery.owner.username || '' }} 
+                  
+              </h4>
+              <h3 class="text-white mb-2">{{ nft.name }} </h3>
+              <div class="avatar btn d-flex mb-2">
+               
+              </div>
+              <div class="button">
+                <a [routerLink]="['/nfts/', nft.id]" class="btn btn-light">Voir les détails du NFTSS</a>
+              </div>
             </div>
           </div>
+         
+     
         </div>
+        
+  
       </div>
-
+    

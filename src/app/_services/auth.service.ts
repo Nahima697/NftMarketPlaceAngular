@@ -16,7 +16,7 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<TokenUser | null>;
   public currentUser: Observable<TokenUser | null>;
   private apiGoogle ='https://127.0.0.1:8000/connect/google';
-  private authUrl ='https://127.0.0.1:8000'
+  private authUrl ='http://127.0.0.1:8000'
 
   constructor(
     private http: HttpClient,

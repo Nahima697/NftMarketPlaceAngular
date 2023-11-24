@@ -1,13 +1,13 @@
 <section class="categories mt-5 mb-5">
   <div class="container">
-    <div class="row mb-3">
+    <div class="row mb-2">
       <div class="col-lg-1"></div>
       <div class="col-lg-11">
         <h2 class="text-white">Categories</h2>
         <div class="row d-flex flex-wrap">
           <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3" *ngFor="let category of categories">
             <div class="card card-artist">
-              <img [src]="'http://localhost/nftMarketplace/uploads/' + category.image" class="card-img-top" [alt]="category.wording">
+              <img src="../../../assets/images/Artist Avatar10.png" class="card-img-top" [alt]="category.wording">
               <div class="card-body text-center">
                 <h5 class="card-title text-white">{{ category.wording | titlecase }}</h5>
               </div>

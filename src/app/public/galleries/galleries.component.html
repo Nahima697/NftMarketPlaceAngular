@@ -1,10 +1,10 @@
 <section class="gallery min-vh-100">
-  <div class="container-lg">
+  <div class="container w-75">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
       <div class="col-4" *ngFor="let gallery of galleries">
         <div class="card gallery-card position-relative" *ngIf="gallery.nfts.length > 0">
           <img [src]="'http://localhost/nftMarketplace/uploads/' + gallery.nfts[0].image"
-          [alt]="gallery.name" class="card-img-top">
+          [alt]="gallery.name" class="card-img-top ">
           <div class="card-body">
             <h5 class="card-title text-white mb-3">{{ gallery.name }}</h5>
             <div class="d-flex justify-content-between align-items-center">
