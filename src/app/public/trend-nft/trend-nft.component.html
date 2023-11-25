@@ -21,7 +21,7 @@
       <div class="row d-flex justify-content-center">
         <div class="col-md-4 col-sm-6 col-12" *ngFor="let nft of nfts">
           <div class="card mb-4">
-            <img [src]="'http://localhost:8000/media/cache/thumbnail_web_path/uploads/' + nft.image+ '.webp'" class="card-img-top" [alt]="nft.name" loading="lazy">
+            <img [src]="'http://localhost:8000/media/cache/thumbnail_web_path/uploads/' + nft.image+ '.webp'" class="card-img-top" class="'img-fluid arrondi" [alt]="nft.name" loading="lazy">
             <div class="card-body">
               <h5 class="card-title text-white">{{ nft.name }}</h5>
               <div class="d-flex align-items-center">
