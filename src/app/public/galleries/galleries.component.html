@@ -2,14 +2,14 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
       <div class="col-4" *ngFor="let gallery of galleries">
-        <div class="card gallery-card position-relative" *ngIf="gallery.nfts.length > 0">
-          <img  [src]="'http://localhost:8000/media/cache/thumbnail_web_path/uploads/' + gallery.nfts[0].image +'webp'"
+        <div class="card gallery-card position-relative m-2" *ngIf="gallery.nfts.length > 0">
+          <img  [src]="'http://localhost:8000/uploads/' + gallery.nfts[0].image "
           [alt]="gallery.name" class="card-img-top" loading="eager">
           <div class="card-body">
             <h5 class="card-title text-white mb-3">{{ gallery.name }}</h5>
             <div class="d-flex justify-content-between align-items-center">
               <div class="user-info d-flex align-items-center">
-                <img  [src]="'http://localhost:8000/media/cache/thumbnail_web_path/uploads/' + gallery.owner.avatar"
+                <img  [src]="'http://localhost:8000/uploads/' + gallery.owner.avatar"
                  [alt]="gallery.owner.username" class="avatarSmall me-2" loading="lazy">
                 <span class="text-white fw-bold">{{ gallery.owner.username }}</span>
               </div>
@@ -17,7 +17,7 @@
                 {{ gallery.nfts.length }} NFTs
               </a>
               <!-- Bouton Modal -->
-              <button (click)="openModal('http://localhost:8000/media/cache/thumbnail_web_path/uploads/'
+              <button (click)="openModal('http://localhost:8000/uploads/'
               + gallery.nfts[0].image, gallery.description)" class="btn btn-info mt-2" >Voir plus</button>
             </div>
           </div>
