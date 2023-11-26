@@ -1,9 +1,9 @@
-<section class="container mt-5 w-75">
+<section class="container mt-5">
   <div class="row">
     <div class="col-lg-12">
       <h2 class="text-white fw-bold">Top Créateurs</h2>
-      <div class="row mb-3 m-1 ">
-        <div class="col-lg-4 col-sm-12">
+      <div class="row mb-3 me-1 ">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 ">
           <p class="text-white">Nos tops Créateurs dans notre Nft MarketPlace</p>
         </div>
         <div class="col-lg-1 offset-md-6 d-flex col-sm-12 d-none d-md-block btn"  style="border: 2px solid ; background: #A259FF; padding:10px; width:9.5em; border-radius:1em">
@@ -15,12 +15,12 @@
   </div>
 </div>
         <div class="row ">
-          <div class="col-lg-3 mb-5 col-md-3 col-sm-12 animate__animated" *ngFor="let creator of topCreators">
-            <div class="card card-artist d-flex flex-column align-items-center justify-content-center">
-              <a (click)="navigateToUserProfile(creator.id)">
-                <img  [src]="'https://streetnft.lahx7364.odns.fr/nahima/nftMarketPlaceSymfony/public/uploads/' + creator.avatar+'.webp'" class="artistAvatar" loading="lazy"></a>
-              <h4 class="text-white">{{ creator.username | titlecase }}</h4>
-              <p class="text-white">Total Ventes {{ creator.totalSales }} ETH</p>
+          <div class="col-lg-3 mb-5 col-md-6 col-sm-12  animate__animated" *ngFor="let creator of topCreators">
+            <div class="card card-artist d-flex flex-lg-column  align-items-lg-center justify-content-lg-center">
+              <a (click)="navigateToUserProfile(creator.id)" class="p-0" >
+                <img  [src]="'https://streetnft.lahx7364.odns.fr/nahima/nftMarketPlaceSymfony/public/uploads/' + creator.avatar+'.webp'" class="artistAvatar  ms-6 me-6" loading="lazy"></a>
+              <h4 class="text-white me-3 ">{{ creator.username | titlecase }}</h4>
+              <p class="text-white text-center ms-6">Total Ventes : {{ creator.totalSales }} ETH</p>
             </div>
           </div>
         </div>

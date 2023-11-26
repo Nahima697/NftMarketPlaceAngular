@@ -1,14 +1,37 @@
 
-
-.artisAvatar
-  width: 120 px
+.artistAvatar
+  width: 120px
   height: 120px
+
+  @media screen and (max-width: 972px)
+      width: 60px
+      height: 60px
+      margin-right: 10px
+
+
+
 
 .card-artist
   width: 238px
   height: 240px
+
   @media screen and (max-width: 768px)
       width: 21em
+      height: 100px
+      padding-left: 20px
+      flex-direction: row !important
+      justify-content: start
+      align-items: center
+      flex-wrap: wrap
+
+  @media screen and (max-width: 972px)
+      width: 21em
+      height: 100px
+      padding-left: 20px
+      flex-direction: row !important
+      justify-content: start
+      align-items: center
+      flex-wrap: wrap
 button
   background: #A259FF
   position: absolute
@@ -25,3 +48,4 @@ button
 
 .btn:hover
   background: blue
+
