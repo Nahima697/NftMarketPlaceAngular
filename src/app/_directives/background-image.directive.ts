@@ -12,6 +12,7 @@ export class BackgroundImageDirective implements OnInit {
     if (this.appBackgroundImage) {
       this.renderer.setStyle(this.el.nativeElement, 'background-image', `url('${this.appBackgroundImage}')`);
       this.renderer.setStyle(this.el.nativeElement, 'background-size', 'cover');
+      this.renderer.setStyle(this.el.nativeElement, 'object-position', 'center top');
       this.renderer.setStyle(this.el.nativeElement, 'background-repeat', 'no-repeat');
     }
   }

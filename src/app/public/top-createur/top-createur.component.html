@@ -6,10 +6,10 @@
         <div class="col-lg-4 col-sm-12">
           <p class="text-white">Nos tops Créateurs dans notre Nft MarketPlace</p>
         </div>
-        <div class="col-lg-1 offset-md-6 d-flex col-sm-12 d-none d-md-block"  style="border: 2px solid ; background: #A259FF; padding:10px; width:9.5em; border-radius:1em">
-          <span class="rocket-launch me-2 "
-         ><img src="../../../assets/images/RocketLaunch.png" alt="rocket Launch" loading="lazy"></span>
-        <a  router-link ="/auth" class="text-white ">Commencer</a>
+        <div class="col-lg-1 offset-md-6 d-flex col-sm-12 d-none d-md-block btn"  style="border: 2px solid ; background: #A259FF; padding:10px; width:9.5em; border-radius:1em">
+          <a class="rocket-launch me-2 text-white"routerLink="/registerForm"
+         ><img src="../../../assets/images/RocketLaunch.png" alt="rocket Launch" loading="lazy">
+        Commencer</a>
       </div>
     </div>
   </div>
@@ -18,7 +18,7 @@
           <div class="col-lg-3 mb-5 col-md-3 col-sm-12 animate__animated" *ngFor="let creator of topCreators">
             <div class="card card-artist d-flex flex-column align-items-center justify-content-center">
               <a (click)="navigateToUserProfile(creator.id)">
-                <img  [src]="'http://localhost:8000/media/cache/thumbnail_web_path/uploads/' + creator.avatar+'.webp'" class="artistAvatar" loading="lazy"></a>
+                <img  [src]="'https://streetnft.lahx7364.odns.fr/nahima/nftMarketPlaceSymfony/public/uploads/' + creator.avatar+'.webp'" class="artistAvatar" loading="lazy"></a>
               <h4 class="text-white">{{ creator.username | titlecase }}</h4>
               <p class="text-white">Total Ventes {{ creator.totalSales }} ETH</p>
             </div>

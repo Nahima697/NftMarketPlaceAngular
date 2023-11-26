@@ -1,14 +1,8 @@
 <div class="container-fluid">
       <div *ngFor="let nft of nft$ | async">
-        <div class="hightlight container-fluid" [appBackgroundImage]="'http://localhost:8000/media/cache/thumbnail_web_path/uploads/' + nft.image +'.webp'" loading="lazy">
-            <h4 class="text-white mb-2">{{ nft.name }}</h4>
-            <div class="avatar btn d-flex mb-2">
-              <img [src]="'http://localhost:8000/media/cache/thumbnail_web_path/uploads/' + (nft.gallery.owner.avatar || '') +'.webp'" class="avatarsmall" style="width:7em" loading="eager"  />
-              <h4 class="text-white mb-2">{{ nft.gallery.owner.username || '' }}</h4>
-            </div>
-            <div class="button">
-              <a [routerLink]="['/nfts/', nft.id]" class="btn btn-light">Voir les détails du NFT</a>
-            </div>
+        <div class="hightlight container-fluid" style="background: url('../../../../assets/images/hight.png') center center/cover;object-fit: cover;" loading="lazy">
+
         </div>
       </div>
   </div>
+
