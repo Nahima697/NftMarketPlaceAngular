@@ -14,10 +14,12 @@ import { ActivatedRoute } from '@angular/router';
 export class UserProfileComponent implements OnInit {
   loading = false;
   nfts!:Nft[];
-  @Input() owner!:User;
+  @Input() owner?:User;
   gallery!:Gallery;
-  id!:number
+  galleries!:Gallery[]
+  id?:number
   showUserNft:boolean= false;
+
 
   constructor(private authService: AuthService, private usersService: UsersService,private activatedRoute: ActivatedRoute) {}
 
@@ -29,11 +31,10 @@ export class UserProfileComponent implements OnInit {
     if (userId && !creatorId) {
       this.loading = true;
       this.usersService.getUser(userId).subscribe((data: any) => {
-        console.log(data);
-        this.gallery = data?.galleries?.[0];
-        console.log(this.gallery);
+        this.galleries = data.galleries;
+        console.log(this.galleries);
         this.owner = data;
-        this.nfts = this.gallery?.nfts || [];
+        this.nfts = this.gallery?.nfts;
       },
       (error) => {
         this.loading = false;
@@ -43,11 +44,10 @@ export class UserProfileComponent implements OnInit {
 
     if (creatorId) {
       this.usersService.getUser(creatorId).subscribe((data: any) => {
-        console.log(data);
-        this.gallery = data?.galleries?.[0];
-        console.log(this.gallery);
+        this.galleries = data.galleries;
+        console.log(this.galleries);
         this.owner = data;
-        this.nfts = this.gallery?.nfts || [];
+         
       });
     } else {
       console.error('ID de l\'utilisateur introuvable.');

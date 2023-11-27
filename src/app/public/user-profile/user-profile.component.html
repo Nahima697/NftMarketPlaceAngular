@@ -3,7 +3,7 @@
   <p class="text-white">Nombre d'œuvres: {{ owner!.artworksCount || 'N/A' }}</p>
   <p class="text-white">Ventes totales: {{ owner!.totalSales || 'N/A' }}</p>
   <p class="profile-description text-white m-2">
- {{ owner.description}}
+ {{ owner!.description}}
   </p>
   <img [src]="'https://streetnft.lahx7364.odns.fr/nahima/nftMarketPlaceSymfony/public/uploads/' + owner!.avatar"
   alt="Avatar Propriétaire" class="avatar-small me-2">
@@ -14,5 +14,5 @@
 <button *ngIf="showUserNft" class="btn btn-dark toggle-button" (click)="toggleShowUserNft()">Voir le profil</button>
 
 <ng-container *ngIf="showUserNft">
-  <app-user-nft [nfts]="nfts" [gallery]="gallery" [owner]="owner"></app-user-nft>
+  <app-user-nft  [galleries]="galleries" [owner]="owner"></app-user-nft>
 </ng-container>

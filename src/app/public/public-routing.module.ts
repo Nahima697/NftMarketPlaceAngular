@@ -9,6 +9,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PlayoutComponent } from './playout/playout.component';
 import { NftComponent } from './nft/nft.component';
 import { NftDetailComponent } from './nft-detail/nft-detail.component';
+import { LegalNoticeComponent } from './LegalNotice/legal-notice/legal-notice.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
       { path: 'registerForm', component: RegisterFormComponent },
       { path: 'auth', component: LoginFormComponent },
       { path: 'profil/:id', component: UserProfileComponent },
-      // {path:'**', component:ErrorComponent},
+      {path:'mentions', component:LegalNoticeComponent},
     ],
   },
 ];

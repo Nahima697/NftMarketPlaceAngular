@@ -29,6 +29,7 @@ import { UserNftModule } from '../user-nft/user-nft.module';
 import { CookieService } from 'ngx-cookie-service';
 import {SocialLoginModule, GoogleLoginProvider, SocialAuthServiceConfig, GoogleSigninButtonModule, } from '@abacritt/angularx-social-login';
 import { ModalComponent } from './galleries/modal/modal.component';
+import { LegalNoticeComponent } from './LegalNotice/legal-notice/legal-notice.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { ModalComponent } from './galleries/modal/modal.component';
     BackgroundImageDirective,
     SidemenuComponent,
     ModalComponent,
+    LegalNoticeComponent,
 
   ],
   imports: [
