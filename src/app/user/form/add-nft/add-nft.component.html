@@ -1,40 +1,40 @@
 <div class="container">
   <h2 class="text-white text-center">Ajouter un NFT</h2>
-  <form [formGroup]="nftForm" method="post" enctype="multipart/form-data" (ngSubmit)="onSubmit()">
-    <div class="form-group w-50 mb-3">
-      <label for="name" class="text-white fw-bold mb-2 ">
+  <form [formGroup]="nftForm" method="post" enctype="multipart/form-data" (ngSubmit)="onSubmit()" class="w-50 mx-auto">
+    <div class="form-group mb-3">
+      <label for="name" class="text-white fw-bold mb-2">
         <i class="fas fa-user" style="color: purple;"></i> Nom</label>
-      <input type="text" class="form-control" id="name" name="name" formControlName="name" required >
+      <input type="text" class="form-control" id="name" name="name" formControlName="name" required>
     </div>
-    <div class="form-group w-50 mb-3">
-      <label for="image" class="text-white fw-bold mb-2 ">
+    <div class="form-group mb-3">
+      <label for="image" class="text-white fw-bold mb-2">
         <i class="fas fa-image" style="color: purple;"></i> Image</label>
       <input type="file" class="form-control" (change)="onFileSelected($event)" id="image" name="image" formControlName="image" required>
     </div>
-    <div class="form-group w-50 mb-3">
-      <label for="category" class="text-white fw-bold mb-2 ">
+    <div class="form-group mb-3">
+      <label for="category" class="text-white fw-bold mb-2">
         <i class="fas fa-list" style="color: purple;"></i> Catégorie</label>
       <select class="form-control" id="category" name="category" formControlName="category">
         <option value="" disabled selected>Sélectionnez une catégorie</option>
         <option *ngFor="let category of categories" [value]="category.id">{{category.wording}}</option>
       </select>
     </div>
-    <div class="form-group w-50 mb-3">
+    <div class="form-group mb-3">
       <label for="quantity" class="text-white fw-bold mb-2">
         <i class="fas fa-cube" style="color: purple;"></i> Quantité</label>
       <input type="number" class="form-control" id="quantity" name="quantity" formControlName="quantity" min="0">
     </div>
-    <div class="form-group w-50 mb-3">
-      <label for="dropDate" class="text-white fw-bold mb-2 ">
+    <div class="form-group mb-3">
+      <label for="dropDate" class="text-white fw-bold mb-2">
         <i class="far fa-calendar-alt" style="color: purple;"></i> Date de sortie</label>
       <input type="date" class="form-control" id="dropDate" name="dropDate" formControlName="dropDate" required>
     </div>
-    <div class="form-group w-50 mb-3">
+    <div class="form-group mb-3">
       <label for="price" class="text-white fw-bold mb-2">
         <i class="fas fa-coins" style="color: purple;"></i> Prix</label>
-      <input type="number" class ="form-control" id="price" name="price" formControlName="price" min="0">
+      <input type="number" class="form-control" id="price" name="price" formControlName="price" min="0">
     </div>
-    <div class="form-group w-50 mb-3">
+    <div class="form-group mb-3">
       <label for="gallery" class="text-white fw-bold">
         <i class="fas fa-images" style="color: purple;"></i> Galerie</label>
       <select class="form-control" id="gallery" name="gallery" formControlName="gallery">
@@ -42,7 +42,7 @@
         <option *ngFor="let gallery of galleries" [value]="gallery.id">{{gallery.name}}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary text-white p-3 fw-bold align-self-center">
+    <button type="submit" class="btn btn-primary text-white p-3 fw-bold mx-auto d-block">
       <i class="fas fa-check-circle" style="color: white;"></i> Ajouter NFT
     </button>
   </form>

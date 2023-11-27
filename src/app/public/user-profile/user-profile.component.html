@@ -3,10 +3,10 @@
   <p class="text-white">Nombre d'œuvres: {{ owner!.artworksCount || 'N/A' }}</p>
   <p class="text-white">Ventes totales: {{ owner!.totalSales || 'N/A' }}</p>
   <p class="profile-description text-white m-2">
- {{ owner!.description}}
+    {{ owner!.description }}
   </p>
   <img [src]="'https://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + owner!.avatar"
-  alt="Avatar Propriétaire" class="avatar-small me-2">
+    alt="Avatar Propriétaire" class="avatar-small me-2">
   <button class="btn btn-dark toggle-button" (click)="toggleShowUserNft()">
     Voir les NFT</button>
 </div>
@@ -14,6 +14,6 @@
 <button *ngIf="showUserNft" class="btn btn-dark toggle-button" (click)="toggleShowUserNft()">Voir le profil</button>
 
 <ng-container *ngIf="showUserNft">
-  <app-user-nft  [galleries]="galleries" [owner]="owner"></app-user-nft>
+  <app-user-nft [galleries]="galleries" [owner]="owner"></app-user-nft>
 </ng-container>
 <app-footer></app-footer>
