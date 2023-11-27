@@ -14,7 +14,6 @@ export class TrendNftComponent implements OnInit {
 
   ngOnInit(): void {
     this.nftService.getTrendNfts().subscribe((data: any) => {
-      console.log(data);
       this.nfts = data;
 
     });

@@ -67,10 +67,8 @@ export class RegisterFormComponent implements OnInit {
           email: emailValue,
           plainPassword: passwordValue,
         };
-        console.log(user)
         this.usersService.createUser(user).subscribe(
           (response) => {
-            console.log(user)
             this.router.navigate(['/auth']);
           },
           (error) => {

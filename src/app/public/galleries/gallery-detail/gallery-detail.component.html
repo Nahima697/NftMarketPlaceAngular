@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-lg-3" *ngFor="let nft of nfts">
           <div class="card mb-3">
-            <img [src]="'https://streetnft.lahx7364.odns.fr/nahima/nftMarketPlaceSymfony/public/uploads/' + nft.image" class="card-img-top" alt="Image du NFT" loading="eager">
+            <img [src]="'http://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + nft.image" class="card-img-top" alt="Image du NFT" loading="eager">
             <div class="card-body d-flex justify-content-around p-0">
               <h5 class="card-title text-white">{{ nft.name }}</h5>
               <p class="card-text text-white"> Prix : {{ nft.price }}</p>
@@ -12,7 +12,7 @@
             <div class="card-footer d-flex justify-content-around p-0">
               <p class="card-text text-white">{{ nft.categoryName }}</p>
               <p class="card-text text-white">{{ gallery.owner.username}}</p>
-              <img [src]="'https://streetnft.lahx7364.odns.fr/nahima/nftMarketPlaceSymfony/public/uploads/' + gallery.owner.avatar" class="card-img-top avatarsmall" alt="Image du NFT" loading="eager">
+              <img [src]="'http://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + gallery.owner.avatar" class="card-img-top avatarsmall" alt="Image du NFT" loading="eager">
               <a [routerLink]="['/nft/', nft.id]" class="btn btn-dark">Détails</a>
             </div>
           </div>
@@ -20,3 +20,4 @@
       </div>
 </div>
 
+<app-footer></app-footer>

@@ -22,20 +22,12 @@ export class NftDetailComponent implements OnInit {
     let id = parseInt(this.activatedRoute.snapshot.paramMap.get('id') || '');
     this.nftService.getOne(id).subscribe(data => {
       this.nft = data;
-      console.log(data);
 
       });
     ;
   }
 
-        // this.nft? = this.activatedRoute.paramMap
-        //     .pipe(
-        //         map(paramMap => paramMap.get('id')),
-        //         switchMap(id => this.nftService.getOne(id).subscribe(data => {
-        //               this.nft = data;
-        //               this.isLoading =false;
-        //               });))
-        //     );
+
 
     }
 

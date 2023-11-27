@@ -18,7 +18,7 @@
           <div class="col-lg-3 mb-5 col-md-6 col-sm-12  animate__animated" *ngFor="let creator of topCreators">
             <div class="card card-artist d-flex flex-lg-column  align-items-lg-center justify-content-lg-center">
               <a (click)="navigateToUserProfile(creator.id)" class="p-0" >
-                <img  [src]="'https://streetnft.lahx7364.odns.fr/nahima/nftMarketPlaceSymfony/public/uploads/' + creator.avatar+'.webp'" class="artistAvatar  ms-6 me-6" loading="lazy"></a>
+                <img  [src]="'http://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + creator.avatar+'.webp'" class="artistAvatar  ms-6 me-6" loading="lazy"></a>
               <h4 class="text-white me-3 ">{{ creator.username | titlecase }}</h4>
               <p class="text-white text-center ms-6">Total Ventes : {{ creator.totalSales }} ETH</p>
             </div>

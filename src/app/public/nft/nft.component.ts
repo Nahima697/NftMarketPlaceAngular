@@ -31,13 +31,11 @@ export class NftComponent implements OnInit {
     if (this.filterValues) {
       this.nftService.getFilteredNfts(this.filterValues).subscribe(data => {
         this.nfts = data;
-        console.log(data);
         this.isLoading = false;
       });
     } else {
       this.nftService.getAll().subscribe(data => {
         this.nfts = data;
-        console.log(data);
         this.isLoading = false;
       });
     }

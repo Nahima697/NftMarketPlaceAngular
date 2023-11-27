@@ -5,7 +5,7 @@
   <p class="profile-description text-white m-2">
  {{ owner!.description}}
   </p>
-  <img [src]="'https://streetnft.lahx7364.odns.fr/nahima/nftMarketPlaceSymfony/public/uploads/' + owner!.avatar"
+  <img [src]="'http://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + owner!.avatar"
   alt="Avatar Propriétaire" class="avatar-small me-2">
   <button class="btn btn-dark toggle-button" (click)="toggleShowUserNft()">
     Voir les NFT</button>
@@ -16,3 +16,4 @@
 <ng-container *ngIf="showUserNft">
   <app-user-nft  [galleries]="galleries" [owner]="owner"></app-user-nft>
 </ng-container>
+<app-footer></app-footer>

@@ -29,10 +29,7 @@ ngOnInit(): void {
     if (this.loggedIn) {
       this.isLogged = true;
         this.userService.getUserIdByGoogleId(socialUser.id).subscribe((user: any) => {
-          console.log(user)
-          console.log(user.token)
           const decodedToken = this.authService.decodeToken(user.token);
-          console.log(decodedToken.id)
           this.authService.saveGoogleToken(user.token, decodedToken);
         });
     }

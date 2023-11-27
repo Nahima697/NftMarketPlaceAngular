@@ -32,7 +32,6 @@ export class UserProfileComponent implements OnInit {
       this.loading = true;
       this.usersService.getUser(userId).subscribe((data: any) => {
         this.galleries = data.galleries;
-        console.log(this.galleries);
         this.owner = data;
         this.nfts = this.gallery?.nfts;
       },
@@ -45,9 +44,8 @@ export class UserProfileComponent implements OnInit {
     if (creatorId) {
       this.usersService.getUser(creatorId).subscribe((data: any) => {
         this.galleries = data.galleries;
-        console.log(this.galleries);
         this.owner = data;
-         
+
       });
     } else {
       console.error('ID de l\'utilisateur introuvable.');

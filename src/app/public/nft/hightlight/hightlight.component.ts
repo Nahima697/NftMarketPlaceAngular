@@ -24,7 +24,6 @@ export class HightlightComponent implements OnInit {
     this.nft$.subscribe((nfts: Nft[]) => {
       if (nfts.length > 0) {
         const nft = nfts[0]; 
-        console.log(nft);
         this.gallery = nft.gallery;
         this.user = this.gallery.owner;
       }

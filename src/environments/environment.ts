@@ -9,7 +9,7 @@
 
 export const environment = {
   production: true,
-  apiUrl:'https://streetnft.lahx7364.odns.fr/nahima/nftMarketPlaceSymfony/public/api',
-  authUrl :'https://streetnft.lahx7364.odns.fr/nahima/nftMarketPlaceSymfony/public/auth',
+  apiUrl:'http://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/api',
+  authUrl :'http://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/auth',
 
 };
