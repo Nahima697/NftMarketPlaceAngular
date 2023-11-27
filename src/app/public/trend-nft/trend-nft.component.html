@@ -21,11 +21,11 @@
 
           <div  class=" d-flex flex-wrap justify-content-lg-center justify-content-sm-between justify-content-md-between " >
           <div class="card mb-4 me-md-4 me-lg-4">
-            <img [src]="'http://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + nft.image " class="card-img-top arrondi me-3"  [alt]="nft.name" loading="lazy">
+            <img [src]="'https://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + nft.image " class="card-img-top arrondi me-3"  [alt]="nft.name" loading="lazy">
             <div class="card-body">
               <h5 class="card-title text-white">{{ nft.name }}</h5>
               <div class="d-flex align-items-center">
-                <img [src]="'http://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + nft.gallery.owner.avatar" alt="Avatar Propriétaire" class="avatarsmall me-2">
+                <img [src]="'https://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + nft.gallery.owner.avatar" alt="Avatar Propriétaire" class="avatarsmall me-2">
                 <p class="card-text text-white">{{ nft.gallery.owner.username }}</p>
               </div>
               <p class="card-text text-white">Prix : {{ nft.price }} ETH</p>
