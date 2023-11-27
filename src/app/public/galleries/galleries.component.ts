@@ -24,10 +24,8 @@ export class GalleriesComponent implements OnInit {
     this.GalleriesService.getGalleries().subscribe((data: any) => {
         this.galleries = data;
         this.galleries.forEach((gallery: Gallery) => {
-          console.log(gallery)
         this.nfts = gallery.nfts;
-          console.log(this.nfts);
-          console.log(gallery.description)
+
           });
         });
 
