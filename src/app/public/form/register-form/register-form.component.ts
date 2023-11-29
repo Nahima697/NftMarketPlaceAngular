@@ -79,6 +79,6 @@ export class RegisterFormComponent implements OnInit {
     }
   }
   registerWithGoogle() {
-    window.location.href = 'https://127.0.0.1:8000/connect/google';
+    window.location.href = 'https://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/connect/google';
   }
 }
