@@ -28,7 +28,6 @@ import {provideClientHydration} from '@angular/platform-browser';
     PublicModule,
     SocialLoginModule,
 
-
   ],
 
   providers: [

@@ -12,21 +12,16 @@ export class NftComponent implements OnInit {
   @Input()nfts: Nft[] = [];
   isLoading: boolean = false;
   filterValues: any = {};
-
-
   constructor(private nftService: NftService) {}
-
   ngOnInit(): void {
     this.isLoading = true;
     this.loadNfts();
   }
 
-
   onFilterChanged(filterValues: any) {
     this.filterValues = filterValues;
     this.loadNfts();
   }
-
   loadNfts() {
     if (this.filterValues) {
       this.nftService.getFilteredNfts(this.filterValues).subscribe(data => {
