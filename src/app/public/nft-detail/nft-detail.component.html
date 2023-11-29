@@ -1,21 +1,21 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <div class="col-lg-6">
-      <img [src]="'https://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + nft.image" class="img-nft" [alt]="nft.name" style="max-width: 600px; height: auto;">
+      <img [src]="'https://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + nft.image" class="img-nft" [alt]="nft.name" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
     </div>
     <div class="col-lg-6">
-      <h2 class="card-title text-white fw-bolder text-center">{{ nft.name }}</h2>
+      <h2 class="card-title text-white fw-bolder text-center mb-4">{{ nft.name }}</h2>
       <div class="card">
         <div class="card-body">
-          <p class="card-text text-white">Prix: {{ nft.price | currency: " ETH " }}</p>
-          <p class="card-text text-white">Propriétaire: {{ nft.gallery.owner.username }}</p>
-          <p class="card-text text-white">Quantité: {{ nft.quantity }}</p>
-          <p class="card-text text-white">Date: {{ nft.dropDate | date:'medium'}}</p>
-          <p class="card-text text-white">Catégorie: {{ nft.categoryName }}</p>
-          <a [routerLink]="['/']" class="btn btn-dark">Retour</a>
+          <p class="card-text text-white fs-5 mb-2">Prix: {{ nft.price | currency: " ETH " }}</p>
+          <p class="card-text text-white fs-5 mb-2">Propriétaire: {{ nft.gallery.owner.username }}</p>
+          <p class="card-text text-white fs-5 mb-2">Quantité: {{ nft.quantity }}</p>
+          <p class="card-text text-white fs-5 mb-2">Date: {{ nft.dropDate | date:'medium'}}</p>
+          <p class="card-text text-white fs-5 mb-2">Catégorie: {{ nft.categoryName }}</p>
+          <a [routerLink]="['/']" class="btn btn-dark mt-3">Retour</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-<app-footer></app-footer>
+<app-footer class="mt-5"></app-footer>
