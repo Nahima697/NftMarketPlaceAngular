@@ -4,7 +4,7 @@
       <div class="col-lg-4 col-sm-12 col-md-6" *ngFor="let gallery of galleries">
         <div class="card gallery-card position-relative m-2 mb-5" *ngIf="gallery.nfts.length > 0">
           <img  [src]="'https://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + gallery.nfts[0].image "
-          [alt]="gallery.name" class="card-img-top" loading="eager">
+          [alt]="gallery.name" class="card-img-top" loading="lazy">
           <div class="card-body">
             <h5 class="card-title text-white mb-3 text-center">{{ gallery.name }}</h5>
             <div class="">
