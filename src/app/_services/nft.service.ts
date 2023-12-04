@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class NftService {
 
   imageUrl = 'https://127.0.0.1:8000/media/cache/resolve/thumbnail_web_path/uploads/'
-  
+
   token = this.authservice.currentUserValue?.token;
  httoptions = new HttpHeaders({
     'Content-Type': 'multipart/form-data',
@@ -38,11 +38,11 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
 
 
   getTrendNfts():Observable<Nft>{
-    return this.http.get<Nft>(`${environment.apiUrl}/nfts?itemsPerPage=3&order%5BdropDate%5D=desc`)
+    return this.http.get<Nft>(`${environment.apiUrl}/nfts?itemsPerPage=3&order%5BdropDate%5D=desc`,{headers:this.httoptions})
   }
 
   getHightlightNft():Observable<Nft[]> {
-  return this.http.get<Nft[]>(`${environment.apiUrl}/nfts?page=1&itemsPerPage=1&order%5BsaleDate%5D=desc`)
+  return this.http.get<Nft[]>(`${environment.apiUrl}/nfts?page=1&itemsPerPage=1&order%5BsaleDate%5D=desc`,{headers:this.httoptions})
   }
 
   addNft(nft: FormData, owner: string | number): Observable<Nft> {

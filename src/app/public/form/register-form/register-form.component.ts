@@ -78,7 +78,21 @@ export class RegisterFormComponent implements OnInit {
       ;
     }
   }
+  // registerWithGoogle() {
+  //   this.authService.RegisterWithGoogle().subscribe(
+  //     (data) => {
+  //       // Utilisez les données comme nécessaire
+  //       console.log(data);
+  //     },
+  //     (error) => {
+  //       // Gérez les erreurs
+  //       console.error(error);
+  //     }
+  //   );
+
+  // }
   registerWithGoogle() {
-    window.location.href = 'https://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/connect/google';
+    window.location.href = 'https://127.0.0.1:8000/connect/google';
+    // window.location.href = 'https://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/connect/google';
   }
 }

@@ -25,7 +25,7 @@ export class AddNftComponent implements OnInit {
   ngOnInit(): void {
     this.owner_id = this.retrieveOwnerId();
     this.nftForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      name: [''],
       image: [null, Validators.required],
       category: ['', Validators.required],
       quantity: [1, [Validators.required, Validators.min(1)]],

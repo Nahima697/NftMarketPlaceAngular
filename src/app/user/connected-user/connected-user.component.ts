@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 import { CategoryService } from 'src/app/_services/category.service';
 import { UsersService } from 'src/app/_services/users.service';
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-connected-user',
@@ -21,7 +22,7 @@ export class ConnectedUserComponent implements OnInit {
     showUpdateUserForm:boolean = false;
     showGraph:boolean =false;
     user!: User;
-    nfts!:Nft[];
+    nfts?:Nft[];
     gallery!:Gallery;
     galleries!:Gallery[];
     categories!:Category[];
@@ -30,7 +31,8 @@ export class ConnectedUserComponent implements OnInit {
       private usersService: UsersService,
       private authService:AuthService,
       private categoryService: CategoryService,
-      private userService: UsersService) { }
+      private userService: UsersService,
+      private activatedRoute:ActivatedRoute) { }
 
       ngOnInit() {
         let id = this.authService.currentUserValue?.user.id;
@@ -53,6 +55,12 @@ export class ConnectedUserComponent implements OnInit {
             this.categories = dataCategory;
             console.log(dataCategory);
           })
+
+          this.activatedRoute.queryParams.subscribe(params => {
+            const token = params['token'];
+            const googleId = params['googleId'];
+            const id = params['id'];
+          });
   }
 
 }

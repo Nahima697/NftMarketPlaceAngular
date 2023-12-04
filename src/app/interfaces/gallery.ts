@@ -7,7 +7,7 @@ export interface Gallery
   quantity?: number,
   owner:creator|any,
   nft_id?: number,
-  nfts: Nft[],
-  description:string,
+  nfts?: Nft[],
+  description?:string,
   nftName?: string
 }

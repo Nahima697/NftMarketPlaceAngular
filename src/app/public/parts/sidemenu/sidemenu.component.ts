@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
 
 import { NftService } from 'src/app/_services/nft.service';
 
@@ -23,6 +24,17 @@ export class SidemenuComponent {
   @Input() filterValues: any;
 
   @Output() filterChanged = new EventEmitter<any>();
+
+  ngOnInit() {
+   
+    this.filterForm.valueChanges.pipe(debounceTime(300)).subscribe(() => {
+      this.submitForm();
+    });
+  }
+
+  onInputChange() {
+
+  }
 
   submitForm() {
     const filterValues = this.filterForm.value;

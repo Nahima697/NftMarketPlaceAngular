@@ -11,7 +11,8 @@ import { DeleteNftModule } from '../delete-nft/delete-nft.module';
   imports: [
     CommonModule,
     RouterModule,
-    DeleteNftModule
+    DeleteNftModule,
+   
   ],
   exports: [UserNftComponent],
 })

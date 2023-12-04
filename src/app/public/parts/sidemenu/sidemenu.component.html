@@ -7,7 +7,7 @@
       <div class="mb-3">
         <label for="nftName" class="form-label text-purple">Nom NFT</label>
         <div class="input-group">
-          <input type="text" class="form-control" id="name" formControlName="name" />
+          <input type="text" class="form-control" id="name" formControlName="name" (input)="onInputChange()" />
           <button type="submit" class="btn btn-dark input-group-text" id="btn-search">
             <i class="bi bi-search text-purple m-2"></i>Rechercher
           </button>
@@ -16,7 +16,7 @@
       <div class="mb-3">
         <label for="nftName" class="form-label text-purple">Nom du Propriétaire</label>
         <div class="input-group">
-          <input type="text" class="form-control" id="username" formControlName="username" />
+          <input type="text" class="form-control" id="username" formControlName="username" (input)="onInputChange()"/>
           <button type="submit" class="btn btn-dark input-group-text" id="btn-search">
             <i class="bi bi-search text-purple m-2"></i>Rechercher
           </button>
@@ -25,7 +25,7 @@
       <div class="mb-3">
         <label for="gallery.name" class="form-label text-purple">Nom de la Galerie</label>
         <div class="input-group">
-          <input type="text" class="form-control" id="gallery.name" formControlName="galleryName" />
+          <input type="text" class="form-control" id="gallery.name" formControlName="galleryName" (input)="onInputChange()" />
           <button type="submit" class="btn btn-dark input-group-text" id="btn-search ">
             <i class="bi bi-search text-purple m-2"></i>Rechercher
           </button>
@@ -34,7 +34,7 @@
       <div class="mb-3">
         <label for="categoryName" class="form-label text-purple">Nom de la Catégorie</label>
         <div class="input-group">
-          <input type="text" class="form-control" id="category.name" formControlName="categoryName" />
+          <input type="text" class="form-control" id="category.name" formControlName="categoryName" (input)="onInputChange()"/>
           <button type="submit" class="btn btn-dark input-group-text" id="btn-search">
             <i class="bi bi-search text-purple m-2"></i>Rechercher
           </button>
@@ -42,11 +42,11 @@
       </div>
       <div class="mb-3">
         <label for="minPrice" class="form-label text-purple">Prix Minimum</label>
-        <input type="number" class="form-control" id="minPrice" formControlName="minPrice" placeholder="Min" />
+        <input type="number" class="form-control" id="minPrice" formControlName="minPrice"(input)="onInputChange()" placeholder="Min" />
       </div>
       <div class="mb-3">
         <label for="maxPrice" class="form-label text-purple">Prix Maximum</label>
-        <input type="number" class="form-control" id="maxPrice" formControlName="maxPrice" placeholder="Max" />
+        <input type="number" class="form-control" id="maxPrice" formControlName="maxPrice" (input)="onInputChange()"placeholder="Max" />
       </div>
       <div class="mb-3">
         <button type="submit" class="btn btn-dark" id="btn-search">

@@ -15,6 +15,8 @@ import { AddNftComponent } from './form/add-nft/add-nft.component';
 import { ChartComponent } from './chart/chart.component';
 import { UserNftModule } from '../user-nft/user-nft.module';
 import { UserUpdateComponent } from './form/user-update/user-update.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -29,6 +31,7 @@ import { UserUpdateComponent } from './form/user-update/user-update.component';
     UpdateUserComponent,
     ChartComponent,
     UserUpdateComponent,
+    TransactionComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +39,7 @@ import { UserUpdateComponent } from './form/user-update/user-update.component';
     FormsModule,
     ReactiveFormsModule,
     UserNftModule,
+   
 
   ],
   providers: [

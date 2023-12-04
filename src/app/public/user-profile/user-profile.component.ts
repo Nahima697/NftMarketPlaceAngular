@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
   loading = false;
-  nfts!:Nft[];
+  nfts?:Nft[];
   @Input() owner?:User;
   gallery!:Gallery;
   galleries!:Gallery[]

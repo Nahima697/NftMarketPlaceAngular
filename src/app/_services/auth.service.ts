@@ -20,6 +20,7 @@ export class AuthService {
   jwtToken?: string;
   decodedToken?: JwtPayload;
 
+
   constructor(
     private http: HttpClient,
     private cookieService: CookieService,
@@ -51,27 +52,9 @@ export class AuthService {
             }));
     }
 
-    // loginWithGoogle() {
-    //   window.location.href = 'https://127.0.0.1:8000/connect/google';
-    //   return new Observable((observer) => {
-    //     const handleResponse = (event: MessageEvent) => {
-    //       if (event.origin === 'https://127.0.0.1:8000') {
-    //         const responseData = event.data;
-    //         if (responseData && responseData.token && responseData.id) {
-    //           const user = { token: responseData.token, id: responseData.id };
-    //           this.currentUserSubject.next(user);
-    //           console.log(user)
-    //           this.cookieService.set('currentUser', JSON.stringify(user), undefined, undefined, undefined, true, 'None');
-    //           observer.next(responseData);
-    //           observer.complete();
-    //           window.removeEventListener('message', handleResponse);
-    //         }
-    //       }
-    //     };
-
-    //     window.addEventListener('message', handleResponse);
-    //   });
-    // }
+    RegisterWithGoogle() {
+      return this.http.get<any>(this.apiGoogle,httpOptions);
+    }
 
     logout() {
         this.cookieService.delete('currentUser');

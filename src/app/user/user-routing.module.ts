@@ -4,13 +4,15 @@ import { ConnectedUserComponent } from './connected-user/connected-user.componen
 import { ULayoutComponent } from './u-layout/u-layout.component';
 import { authGuard } from '../_helper/auth.guard';
 import { UserUpdateComponent } from './form/user-update/user-update.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 const routes: Routes = [
-  {path:'',component:ULayoutComponent,children : [
+  {path:'',component:ULayoutComponent,canActivate: [authGuard],children : [
     {path: '',pathMatch:'full', redirectTo:'connectedUser'},
     { path: 'connectedUser', component: ConnectedUserComponent,data: { name: 'user_connected' }
-    ,canActivate: [authGuard]},
-    {path:'updateProfil/:id',component: UserUpdateComponent}
+   },
+    {path:'updateProfil/:id',component: UserUpdateComponent},
+    {path:'transaction/:nftId',component: TransactionComponent}
 ]},
 ]
 

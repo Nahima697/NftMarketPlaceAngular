@@ -19,7 +19,7 @@ export class SideNavigationComponent {
     @Input() showUpdateUserForm!:boolean;
     @Input() showGraph!:boolean;
     @Input() user?: User ;
-    @Input() nfts!:Nft[];
+    @Input() nfts?:Nft[];
     @Input() gallery!:Gallery;
     @Input() galleries!:Gallery[];
     @Input() categories!:Category[];

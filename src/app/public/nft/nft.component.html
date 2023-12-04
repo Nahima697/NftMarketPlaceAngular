@@ -27,6 +27,7 @@
                     <p class="card-text text-white">{{ nft.categoryName }}</p>
                     <p class="card-text text-white">{{ nft.gallery.owner.username}}</p>
                     <a [routerLink]="['/nft/', nft.id]" class="btn btn-dark">Détails</a>
+                    <a [routerLink]="['/user','transaction', nft.id]" class="btn btn-secondary">Acheter</a>
                   </div>
                 </div>
               </div>
