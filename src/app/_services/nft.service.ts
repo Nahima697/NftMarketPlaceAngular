@@ -42,7 +42,7 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
   }
 
   getHightlightNft():Observable<Nft[]> {
-  return this.http.get<Nft[]>(`${environment.apiUrl}/nfts?page=1&itemsPerPage=1&order%5BsaleDate%5D=desc)
+  return this.http.get<Nft[]>(`${environment.apiUrl}/nfts?page=1&itemsPerPage=1&order%5BsaleDate%5D=desc`)
   }
 
   addNft(nft: FormData, owner: string | number): Observable<Nft> {
