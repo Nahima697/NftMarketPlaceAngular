@@ -38,7 +38,7 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
 
 
   getTrendNfts():Observable<Nft>{
-    return this.http.get<Nft>(`${environment.apiUrl}/nfts?itemsPerPage=3&order%5BdropDate%5D=desc`,{headers:this.httoptions})
+    return this.http.get<Nft>(`${environment.apiUrl}/nfts?page=1&itemsPerPage=3&order%5BdropDate%5D=asc`,{headers:this.httoptions})
   }
 
   getHightlightNft():Observable<Nft[]> {

@@ -27,8 +27,7 @@
                     <p class="card-text text-white">{{ nft.categoryName }}</p>
                     <p class="card-text text-white">{{ nft.gallery.owner.username}}</p>
                     <a [routerLink]="['/nft/', nft.id]" class="btn btn-dark">Détails</a>
-                    <a [routerLink]="['/nft', nft.id]" class="btn btn-secondary">Acheter</a>
-                    <button *ngIf="nft.owner.id !== authService.currentUserValue?.user.id"
+                    <button
                     (click)="openModal(galleries, nft)"
                     class="btn btn-secondary mt-2 text-white">
                     Acheter
