@@ -14,6 +14,11 @@
           <p class="card-text text-white fs-5 mb-2"><strong>Catégorie:</strong> {{ nft.categoryName }}</p>
           <p class="card-text text-white fs-5 mb-2"><strong>Gallery:</strong> {{ nft.gallery.name }}</p>
           <a [routerLink]="['/']" class="btn btn-dark mt-3">Retour</a>
+          <button
+          (click)="openModal(galleries, nft)"
+          class="btn btn-secondary text-white">
+          Acheter
+          </button>
         </div>
       </div>
     </div>

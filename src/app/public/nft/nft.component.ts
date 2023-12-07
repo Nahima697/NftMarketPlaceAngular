@@ -16,6 +16,7 @@ export class NftComponent implements OnInit {
   @Input()nfts: Nft[] = [];
   isLoading: boolean = false;
   filterValues: any = {};
+  gallerie?:Gallery;
   @Input() galleries!:Gallery[];
   constructor(private nftService: NftService,private modalService: NgbModal,public authService: AuthService) {}
   ngOnInit(): void {

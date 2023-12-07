@@ -38,11 +38,11 @@ constructor(private http: HttpClient,private authservice:AuthService) { }
 
 
   getTrendNfts():Observable<Nft>{
-    return this.http.get<Nft>(`${environment.apiUrl}/nfts?page=1&itemsPerPage=3&order%5BdropDate%5D=asc`,{headers:this.httoptions})
+    return this.http.get<Nft>(`${environment.apiUrl}/nfts?page=1&itemsPerPage=3&order%5BdropDate%5D=asc`)
   }
 
   getHightlightNft():Observable<Nft[]> {
-  return this.http.get<Nft[]>(`${environment.apiUrl}/nfts?page=1&itemsPerPage=1&order%5BsaleDate%5D=desc`,{headers:this.httoptions})
+  return this.http.get<Nft[]>(`${environment.apiUrl}/nfts?page=1&itemsPerPage=1&order%5BsaleDate%5D=desc)
   }
 
   addNft(nft: FormData, owner: string | number): Observable<Nft> {

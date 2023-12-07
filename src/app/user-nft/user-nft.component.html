@@ -41,9 +41,9 @@
               <app-delete-nft [nft]="nft"> supprimer le nft </app-delete-nft>
             </ng-container>
               <a [routerLink]="['/nft', nft.id]" class="btn btn-dark">Voir le détail</a>
-              <button 
+              <button
               (click)="openModal(galleries, nft)"
-              class="btn btn-secondary mt-2 text-white">
+              class="btn btn-secondary text-white">
               Acheter
               </button>
                 </div>
