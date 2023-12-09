@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input, ViewChild, ViewContainerRef } from '@angular/core';
 
 import { Gallery } from 'src/app/interfaces/gallery';
 import { Nft } from 'src/app/interfaces/nft';
@@ -15,17 +15,16 @@ import { TransactionComponent } from '../user/transaction/transaction.component'
 })
 export class UserNftComponent {
   constructor(public authService: AuthService,private modalService: NgbModal){}
-
+  @ViewChild('transactionModalContent', { static: true, read: ViewContainerRef })
+  transactionModalContent!: ViewContainerRef;
    nft?:Nft;
   @Input() nfts?:Nft[];
   @Input() gallery!:Gallery;
   @Input() galleries!:Gallery[];
   @Input() owner?:User ;
-  openModal(galleries:any,nft:any) {
-    const modalRef = this.modalService.open(TransactionComponent);
-    modalRef.componentInstance.galleries = galleries;
-    modalRef.componentInstance.nft = nft;
-    modalRef.componentInstance.userId = this.authService.currentUserValue?.id;
+  openPurchaseModal(galleries: any, nft: any) {
+    const modalRef = this.modalService.open(this.transactionModalContent);
+    this.nft = nft;
   }
   }
 

@@ -10,17 +10,19 @@ import { Nft } from 'src/app/interfaces/nft';
 import { User } from 'src/app/interfaces/user';
 
 @Component({
+  standalone:true,
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
   styleUrls: ['./transaction.component.sass'],
   providers: [NgbActiveModal],
 })
 export class TransactionComponent implements OnInit {
-  galleries: any[] = [];
+  @Input() galleries: any[] = [];
   selectedBuyerGalleryId!: number;
-  userId: number | undefined;
-  nft!: Nft;
+  @Input() userId: number | undefined;
+  @Input()nft!: Nft;
   owner!: User | undefined;
+
   newGalleryName: string = '';
   transactionForm!: FormGroup;
 

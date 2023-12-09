@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { Nft } from '../../interfaces/nft';
 import { NftService } from '../../_services/nft.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -14,10 +14,13 @@ import { Gallery } from 'src/app/interfaces/gallery';
 
 export class NftComponent implements OnInit {
   @Input()nfts: Nft[] = [];
+  nft?:Nft;
   isLoading: boolean = false;
   filterValues: any = {};
   gallerie?:Gallery;
   @Input() galleries!:Gallery[];
+  @ViewChild('transactionModalContent', { static: true, read: ViewContainerRef })
+  transactionModalContent!: ViewContainerRef;
   constructor(private nftService: NftService,private modalService: NgbModal,public authService: AuthService) {}
   ngOnInit(): void {
     this.isLoading = true;
@@ -42,10 +45,8 @@ export class NftComponent implements OnInit {
     }
   }
 
-  openModal(galleries:any,nft:any) {
-    const modalRef = this.modalService.open(TransactionComponent);
-    modalRef.componentInstance.galleries = galleries;
-    modalRef.componentInstance.nft = nft;
-    modalRef.componentInstance.userId = this.authService.currentUserValue?.id;
+  openPurchaseModal(galleries: any, nft: any) {
+    const modalRef = this.modalService.open(this.transactionModalContent);
+    this.nft = nft;
   }
 }

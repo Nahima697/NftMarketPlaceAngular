@@ -30,7 +30,6 @@ export class GalleriesComponent implements OnInit {
         });
 
       }
-
       openModal(imageUrl: string,description:string) {
         const modalRef = this.modalService.open(ModalComponent);
         modalRef.componentInstance.imageUrl = imageUrl;

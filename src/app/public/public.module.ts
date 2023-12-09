@@ -30,6 +30,7 @@ import { CookieService } from 'ngx-cookie-service';
 import {SocialLoginModule, GoogleLoginProvider, SocialAuthServiceConfig, GoogleSigninButtonModule, } from '@abacritt/angularx-social-login';
 import { ModalComponent } from './galleries/modal/modal.component';
 import { LegalNoticeComponent } from './LegalNotice/legal-notice/legal-notice.component';
+import { TransactionComponent } from '../user/transaction/transaction.component';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { LegalNoticeComponent } from './LegalNotice/legal-notice/legal-notice.co
     GoogleSigninButtonModule,
     ReactiveFormsModule,
     UserNftModule,
+    TransactionComponent
   ],
 
   providers: [

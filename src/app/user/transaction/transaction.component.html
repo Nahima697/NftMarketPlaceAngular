@@ -1,23 +1,26 @@
-<div class="modal-header">
-  <h4 class="modal-title">Acheter ce Nft pour {{ nft.price }} ETH</h4>
-  <button type="button" class="close" aria-label="Close" (click)="cancel()">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
-  <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
-    <label for="buyerGalleryId" >Ajoutez votre Nft dans une galerie :</label>
-    <select id="buyerGalleryId" formControlName="selectedBuyerGalleryId" name ="selectedBuyerGalleryId">
-      <option [value]="0">Créer une nouvelle galerie</option>
-      <option *ngFor="let gallery of galleries" [value]="gallery.id">{{ gallery.name }}</option>
-    </select>
-    <div *ngIf="transactionForm.get('selectedBuyerGalleryId')?.value === 0">
-      <label for="newGalleryName" class="text-white">Nom de la nouvelle galerie :</label>
-      <input id="newGalleryName" type="text" formControlName="newGalleryName" placeholder="Nom de la galerie">
-    </div>
-    <button type="submit">Acheter</button>
-  </form>
+<div class ="modal">
+  <div class="modal-header">
+    <h4 class="modal-title">Acheter ce Nft pour {{ nft.price }} ETH</h4>
+    <button type="button" class="close" aria-label="Close" (click)="cancel()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+      <label for="buyerGalleryId" >Ajoutez votre Nft dans une galerie :</label>
+      <select id="buyerGalleryId" formControlName="selectedBuyerGalleryId" name ="selectedBuyerGalleryId">
+        <option [value]="0">Créer une nouvelle galerie</option>
+        <option *ngFor="let gallery of galleries" [value]="gallery.id">{{ gallery.name }}</option>
+      </select>
+      <div *ngIf="transactionForm.get('selectedBuyerGalleryId')?.value === 0">
+        <label for="newGalleryName" class="text-white">Nom de la nouvelle galerie :</label>
+        <input id="newGalleryName" type="text" formControlName="newGalleryName" placeholder="Nom de la galerie">
+      </div>
+      <button type="submit">Acheter</button>
+    </form>
+  </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="cancel()">Fermer</button>
   </div>
 </div>
+
