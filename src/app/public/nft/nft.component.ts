@@ -6,6 +6,8 @@ import { TransactionComponent } from 'src/app/user/transaction/transaction.compo
 import { AuthService } from 'src/app/_services/auth.service';
 import { Gallery } from 'src/app/interfaces/gallery';
 
+
+
 @Component({
   selector: 'app-nft',
   templateUrl: './nft.component.html',
@@ -48,5 +50,11 @@ export class NftComponent implements OnInit {
   openPurchaseModal(galleries: any, nft: any) {
     const modalRef = this.modalService.open(this.transactionModalContent);
     this.nft = nft;
+  }
+  openModal(galleries:any,nft:any) {
+    const modalRef = this.modalService.open(TransactionComponent);
+    modalRef.componentInstance.galleries = galleries;
+    modalRef.componentInstance.nft = nft;
+    modalRef.componentInstance.userId = this.authService.currentUserValue?.id;
   }
 }

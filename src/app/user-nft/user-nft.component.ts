@@ -26,6 +26,12 @@ export class UserNftComponent {
     const modalRef = this.modalService.open(this.transactionModalContent);
     this.nft = nft;
   }
+  openModal(galleries:any,nft:any) {
+    const modalRef = this.modalService.open(TransactionComponent);
+    modalRef.componentInstance.galleries = galleries;
+    modalRef.componentInstance.nft = nft;
+    modalRef.componentInstance.userId = this.authService.currentUserValue?.id;
+  }
   }
 
 

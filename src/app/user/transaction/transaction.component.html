@@ -8,11 +8,11 @@
   <div class="modal-body">
     <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
       <label for="buyerGalleryId" >Ajoutez votre Nft dans une galerie :</label>
-      <select id="buyerGalleryId" formControlName="selectedBuyerGalleryId" name ="selectedBuyerGalleryId">
+      <select id="buyerGalleryId" formControlName="selectedBuyerGalleryId" name ="selectedBuyerGalleryId" (change)="onChange($event)">
         <option [value]="0">Créer une nouvelle galerie</option>
         <option *ngFor="let gallery of galleries" [value]="gallery.id">{{ gallery.name }}</option>
       </select>
-      <div *ngIf="transactionForm.get('selectedBuyerGalleryId')?.value === 0">
+      <div *ngIf="selectedBuyerGalleryId == 0">
         <label for="newGalleryName" class="text-white">Nom de la nouvelle galerie :</label>
         <input id="newGalleryName" type="text" formControlName="newGalleryName" placeholder="Nom de la galerie">
       </div>

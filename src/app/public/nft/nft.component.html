@@ -17,23 +17,25 @@
           <div class="col-12">
             <div class="row">
               <div class="col-lg-3" *ngFor="let nft of nfts">
-                <div class="card mb-3">
+                <div class="card  mt-3">
                   <img [src]="'https://streetnft.pomelo-agence.com/nftMarketPlaceSymfony/public/uploads/' + nft.image" class="card-img-top" alt="Image du NFT" loading="lazy">
                   <div class="card-body d-flex justify-content-around p-0">
                     <h2 class="card-title text-white fs-4">{{ nft.name }}</h2>
                     <p class="card-text text-white"> Prix : {{ nft.price }}</p>
                   </div>
-                  <div class="card-footer d-flex justify-content-around p-0">
+                  <div class="card-footer d-flex justify-content-around mb-6 pb-6">
                     <p class="card-text text-white">{{ nft.categoryName }}</p>
                     <p class="card-text text-white">{{ nft.gallery.owner.username}}</p>
-                    <a [routerLink]="['/nft/', nft.id]" class="btn btn-dark">Détails</a>
+                    <a [routerLink]="['/nft/', nft.id]" class="btn btn-dark mb-2 p-1">Détails</a>
                     <ng-container *ngIf="authService.currentUser | async as user">
-                      <button (click)="openPurchaseModal(galleries, nft)">Acheter</button>
-                      <ng-container #transactionModalContent>
-                        <app-transaction [galleries]="galleries" [nft]="nft" [userId]="authService.currentUserValue?.id"></app-transaction>
-                      </ng-container>
+                      <button
+                      (click)="openModal(galleries, nft)"
+                      class="btn btn-secondary text-white p-1 mb-2">
+                      Buy
+                      </button>
                     </ng-container>
                 </div>
+
               </div>
             </div>
           </div>
