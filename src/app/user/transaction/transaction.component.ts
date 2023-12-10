@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/_services/auth.service';
@@ -14,6 +15,7 @@ import { User } from 'src/app/interfaces/user';
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
   styleUrls: ['./transaction.component.sass'],
+  imports:[CommonModule,ReactiveFormsModule],
   providers: [NgbActiveModal],
 })
 export class TransactionComponent implements OnInit {
@@ -90,7 +92,7 @@ export class TransactionComponent implements OnInit {
     const sellerGalleryId = this.nft.gallery;
     const nftId = this.nft.id;
     console.log(this.nft)
-    if (this.selectedBuyerGalleryId === 0) {
+    if (buyerGalleryId === 0) {
       this.addGallery();
     }
     this.transactionService.createTransaction(buyerGalleryId, sellerGalleryId, nftId).subscribe(
@@ -103,7 +105,4 @@ export class TransactionComponent implements OnInit {
     );
   }
 
-  cancel() {
-    this.activeModal.dismiss('Cancel click');
-  }
 }

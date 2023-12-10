@@ -31,7 +31,7 @@ import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UpdateUserComponent,
     ChartComponent,
     UserUpdateComponent,
-    TransactionComponent,
+
   ],
   imports: [
     CommonModule,
@@ -39,7 +39,8 @@ import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     UserNftModule,
-   
+    TransactionComponent,
+
 
   ],
   providers: [
